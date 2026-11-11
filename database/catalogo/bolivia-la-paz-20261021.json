@@ -1,0 +1,1675 @@
+{
+  "batch": "datos_20261021_lapaz_v1",
+  "reviewed_on": "2026-10-21",
+  "municipality": "La Paz",
+  "sources": {
+    "segip_ci": {
+      "nombre": "SEGIP: requisitos de cédula física",
+      "url": "https://www.segip.gob.bo/cedula-de-identidad/",
+      "observaciones": "Lectura de la página oficial; la consulta no garantiza cambios posteriores.",
+      "consulted_on": "2026-10-21",
+      "evidence_sha256": "76749be60fb56dbf36c89c62274a4c30622e472ac6930d0ab46c4a5eeb84e081"
+    },
+    "segip_lc": {
+      "nombre": "SEGIP: licencias para conducir",
+      "url": "https://www.segip.gob.bo/licencia-para-conducir/",
+      "observaciones": "Lectura de la página oficial; la consulta no garantiza cambios posteriores.",
+      "consulted_on": "2026-10-21",
+      "evidence_sha256": "e34fa1fc98620e07d59f77ec89c344b61322967ac2bb8c462d5a3e7e9ab8c405"
+    },
+    "segip_reg": {
+      "nombre": "SEGIP: reglamento al DS 4861",
+      "url": "https://www.segip.gob.bo/fuent/2025/09/REGLAMENTO-AL-D.S.-N%C2%B04861-Y-AUTORIZA-LA-ENTRADA-EN-VIGENCIA-Y-OPERACION-PLENA-DE-LA-C.I.-Y-LA-LICENCIA-PARA-CONDUCIR-EN-FORMATO-DIGITAL.pdf",
+      "observaciones": "PDF escaneado revisado visualmente: arts. 17, 19, 20, 22 y 23, páginas 17–18. No confundir tarifa física con habilitación digital.",
+      "consulted_on": "2026-10-21",
+      "evidence_sha256": "b0b1ec5da7c377c6f031c7ee71cfdc0c103c1bd1b2a1716be84b7d5a6d56c5ab"
+    },
+    "sereci_nac": {
+      "nombre": "OEP/SERECI: duplicado de nacimiento",
+      "url": "https://web.oep.org.bo/wp-content/uploads/2023/08/Venta_certificado_nacimiento.pdf",
+      "observaciones": "Ficha enlazada actualmente desde Servicios de Registro Civil. Página única revisada visualmente. La tarifa difiere del duplicado mencionado en la ficha de inscripción de nacimiento; confirmar importe en ventanilla.",
+      "consulted_on": "2026-10-21",
+      "evidence_sha256": "7a471ebca33107d72ca0fee2d3997ed732650c2c7d3ef929bd957c12ad5f3406"
+    },
+    "sereci_mat": {
+      "nombre": "OEP/SERECI: duplicado de matrimonio",
+      "url": "https://web.oep.org.bo/wp-content/uploads/2023/08/Venta_certificado_matrimonio.pdf",
+      "observaciones": "Ficha actualmente enlazada por el OEP. Página única revisada visualmente; tarifas diferenciadas por oficina.",
+      "consulted_on": "2026-10-21",
+      "evidence_sha256": "a51e1d6a9642f3d9f7fc625be4bea222925f5546b36c888ade23a567ae75fbac"
+    },
+    "sereci_def": {
+      "nombre": "OEP/SERECI: certificado de defunción",
+      "url": "https://web.oep.org.bo/wp-content/uploads/2023/08/Venta_certificado_defuncion.pdf",
+      "observaciones": "Ficha actualmente enlazada por el OEP. Página única revisada visualmente; se requiere una partida ya registrada.",
+      "consulted_on": "2026-10-21",
+      "evidence_sha256": "de1749ff327bc1abfe03bacd7c2815c352f24f9fb7ec61c91a9750b832f5d9b0"
+    },
+    "sereci_reg": {
+      "nombre": "OEP/SERECI: inscripción de nacimiento de menores de 12 años",
+      "url": "https://web.oep.org.bo/wp-content/uploads/2024/01/Reg_nac_territorio_boliviano_0_12_anios.pdf",
+      "observaciones": "Página única revisada visualmente. Tiene referencias internas a adolescentes dentro de una ficha para menores de 12 años; resumen referencial y consulta a oficialía para variantes. Primer certificado gratuito; no usar el importe de duplicados de esta ficha como tarifa general.",
+      "consulted_on": "2026-10-21",
+      "evidence_sha256": "06a52111ee04098f0d0157cc44c50139bb6ad9dcc5d616976601c3fc018d7532"
+    },
+    "sereci_catalogo": {
+      "nombre": "OEP/SERECI: catálogo de servicios civiles",
+      "url": "https://web.oep.org.bo/registro-civico/servicios-registro-civil/",
+      "observaciones": "Lectura de la página oficial; la consulta no garantiza cambios posteriores.",
+      "consulted_on": "2026-10-21",
+      "evidence_sha256": "45659329dcc0d86734716f6f86f06e3723dd00ce17ce8947963b3413da93e25c"
+    },
+    "sereci_certs": {
+      "nombre": "OEP/SERECI: tipos de certificaciones",
+      "url": "https://web.oep.org.bo/registro-civico/servicios-registro-civil/certificaciones/",
+      "observaciones": "Lectura de la página oficial; la consulta no garantiza cambios posteriores.",
+      "consulted_on": "2026-10-21"
+    },
+    "pasaporte": {
+      "nombre": "Ministerio de Gobierno: servicio de emisión de pasaportes",
+      "url": "https://web.mingobierno.gob.bo/?tramite=estado-digital-2-flujo-migratorio",
+      "observaciones": "Ficha ministerial resumida. El importe mostrado difiere de la ficha de pasaporte de Migración indexada por el buscador; la URL antigua de ese PDF devuelve HTML actualmente. No se carga un monto total ni una lista exhaustiva de requisitos.",
+      "consulted_on": "2026-10-21",
+      "evidence_sha256": "7a0486cc51393b8202af6bd80befa1f46627f9353241ef49f1264ee6991ca6ec"
+    },
+    "rejap": {
+      "nombre": "Consejo de la Magistratura: Reglamento REJAP 038/2019",
+      "url": "https://magistratura.organojudicial.gob.bo/wp-content/uploads/2024/12/ACUERDO-N%C2%B0-038-2019.pdf",
+      "observaciones": "Revisados arts. 26 y 36, páginas 11 y 13, junto al instructivo 15/2024. Tarifa normativa histórica de 50 BOB cargada como referencial, pendiente de ratificación en ventanilla.",
+      "consulted_on": "2026-10-21",
+      "evidence_sha256": "ab3dfa9805a2d73bfd53b15382f428e7bec064f35d444420df8fbdab195e5aab"
+    },
+    "rejap_instructivo": {
+      "nombre": "Consejo de la Magistratura: instructivo REJAP 15/2024",
+      "url": "https://magistratura.organojudicial.gob.bo/wp-content/uploads/2024/12/INSTRUCTIVO-REJAP-NAL-CM-No-15-2024.pdf",
+      "observaciones": "Instructivo de 18/11/2024 revisado visualmente. Se resume solicitud del interesado; representación, convocatorias y órdenes judiciales tienen documentos adicionales.",
+      "consulted_on": "2026-10-21",
+      "evidence_sha256": "d11939c16f87e99e11e32226a0420b4c1fbb322b34cbb6ab3defa7da4746a0e2"
+    },
+    "sin_nit": {
+      "nombre": "SIN: requisitos del NIT para personas naturales",
+      "url": "https://siatinfo.impuestos.gob.bo/index.php/requisitos-para-la-inscripcion/requisitos-para-obtener-el-nit-para-personas",
+      "observaciones": "Lectura de la página oficial; la consulta no garantiza cambios posteriores.",
+      "consulted_on": "2026-10-21",
+      "evidence_sha256": "22a9c14adb6ef5fa814aaba16dd28c5a05e9b2be15c072b94ba99e3c4709ac8a"
+    },
+    "sin_rnd": {
+      "nombre": "SIN: RND 102600000002, finalización de inscripción",
+      "url": "https://www.impuestos.gob.bo/wp-content/uploads/2026/01/RND-102600000002-1.pdf",
+      "observaciones": "Norma de 22/01/2026: la inscripción iniciada en línea requiere acudir a plataforma para biometría y validación documental; deroga el art. 7 de la RND 102500000017.",
+      "consulted_on": "2026-10-21",
+      "evidence_sha256": "40eefe06df98f6f6120fe0f8bf0779df45d1aa65dedfe3374cfd438d35d2b2c3"
+    },
+    "sin_actividad": {
+      "nombre": "SIN: actividades económicas del RNC",
+      "url": "https://siatinfo.impuestos.gob.bo/index.php/actividades-economicas",
+      "observaciones": "Lectura de la página oficial; la consulta no garantiza cambios posteriores.",
+      "consulted_on": "2026-10-21",
+      "evidence_sha256": "413f8f8ffea269b1823f2232fec1530f239096a726435b71c5fd9659d2c48628"
+    },
+    "sin_alta": {
+      "nombre": "SIN: altas y bajas de actividad económica",
+      "url": "https://siatinfo.impuestos.gob.bo/index.php/modificaciones-en-el-rnc/actividad-economica",
+      "observaciones": "Lectura de la página oficial; la consulta no garantiza cambios posteriores.",
+      "consulted_on": "2026-10-21",
+      "evidence_sha256": "aeeb5b6cc74ba7025022a97546a0bc67837ad408f4f14916e6a56db880ed26b1"
+    },
+    "seprec": {
+      "nombre": "SEPREC: inscripción de empresa unipersonal",
+      "url": "https://www.seprec.gob.bo/index.php/tramite1/",
+      "observaciones": "Lectura directa del HTML institucional. Tarifa 130 BOB; la página actual indica emisión al realizar pago, mientras la copia indexada indicaba 24 horas: no se garantiza un plazo numérico.",
+      "consulted_on": "2026-10-21",
+      "evidence_sha256": "2786ec45c3fa5f4459fb235445292548ec7fea60e97733355d6ae81cbd40ddfc"
+    },
+    "lp_licencia": {
+      "nombre": "GAMLP: licencia de comercio y servicios sin inspección",
+      "url": "https://lapaz.bo/solicitud-de-licencia-de-funcionamiento-para-actividades-en-general-comercio-y-servicio-sin-inspeccion/",
+      "observaciones": "Ficha publicada el 05/06/2023 y consultada nuevamente. Resumen limitado a persona natural y modalidad sin inspección. La gratuidad corresponde a la licencia, no a patentes ni otros permisos.",
+      "consulted_on": "2026-10-21",
+      "evidence_sha256": "ff8d0908ae98e8b2590f945e2bc99427b5040430d9cc01672059bece4b578bc8"
+    },
+    "lp_transferencia": {
+      "nombre": "GAMLP: transferencia onerosa de vehículos",
+      "url": "https://lapaz.bo/registro-de-impuesto-municipal-a-las-transferencias-onerosas-de-vehiculos-automotores-terrestres/",
+      "observaciones": "Ficha de 22/10/2025 consultada. Dos etapas: inicio y continuación. El tiempo de plataforma no equivale al tiempo total; no se inventa un impuesto fijo.",
+      "consulted_on": "2026-10-21",
+      "evidence_sha256": "43c66d76d1e16c08baa4d210fecbb4ef08a3158bed244e769f4971cf1675def5"
+    },
+    "lp_vehiculos": {
+      "nombre": "GAMLP: catálogo de trámites vehiculares",
+      "url": "https://lapaz.bo/vehiculos/",
+      "observaciones": "Lectura de la página oficial; la consulta no garantiza cambios posteriores.",
+      "consulted_on": "2026-10-21",
+      "evidence_sha256": "9e4a381e7a406dfb9b6750d0a2bd273922479840cb3d83d187027b1e1eccc230"
+    },
+    "lp_catalogo": {
+      "nombre": "GAMLP: directorio municipal de trámites",
+      "url": "https://lapaz.bo/tramites-y-servicios-gamlp/",
+      "observaciones": "Lectura de la página oficial; la consulta no garantiza cambios posteriores.",
+      "consulted_on": "2026-10-21",
+      "evidence_sha256": "d7a288fa53b0b3990f1e379a8f501ad030daac544124d26f6a922571fa7b5ff3"
+    }
+  },
+  "institutions": {
+    "segip": {
+      "nombre": "Servicio General de Identificación Personal (SEGIP)",
+      "sitio_web": "https://www.segip.gob.bo/",
+      "fuente": "segip_ci"
+    },
+    "sereci": {
+      "nombre": "Servicio de Registro Cívico (SERECI) – OEP",
+      "sitio_web": "https://web.oep.org.bo/registro-civico/servicios-registro-civil/",
+      "fuente": "sereci_catalogo"
+    },
+    "migracion": {
+      "nombre": "Dirección General de Migración (DIGEMIG)",
+      "sitio_web": "https://migracion.gob.bo/",
+      "fuente": "pasaporte"
+    },
+    "magistratura": {
+      "nombre": "Consejo de la Magistratura – REJAP",
+      "sitio_web": "https://magistratura.organojudicial.gob.bo/",
+      "fuente": "rejap_instructivo"
+    },
+    "sin": {
+      "nombre": "Servicio de Impuestos Nacionales (SIN)",
+      "sitio_web": "https://www.impuestos.gob.bo/",
+      "fuente": "sin_nit"
+    },
+    "seprec": {
+      "nombre": "Servicio Plurinacional de Registro de Comercio (SEPREC)",
+      "sitio_web": "https://www.seprec.gob.bo/",
+      "fuente": "seprec"
+    },
+    "gamlp": {
+      "nombre": "Gobierno Autónomo Municipal de La Paz (GAMLP)",
+      "sitio_web": "https://lapaz.bo/",
+      "fuente": "lp_catalogo"
+    }
+  },
+  "documents": {
+    "identidad": {
+      "nombre": "Documento de identidad del solicitante",
+      "fuente": "sereci_nac",
+      "descripcion": "Documento admitido por la entidad. La ficha de cada trámite precisa alternativas y vigencia; no se exige llevar todas las alternativas."
+    },
+    "ci": {
+      "nombre": "Cédula de identidad vigente",
+      "fuente": "segip_ci",
+      "descripcion": "Documento de identificación personal. Su presentación física o digital y la necesidad de copias dependen del trámite."
+    },
+    "nacimiento": {
+      "nombre": "Certificado de nacimiento emitido por SERECI",
+      "fuente": "sereci_nac",
+      "descripcion": "Certifica una partida de nacimiento. No confundir una copia de certificado con la inscripción inicial del nacimiento."
+    },
+    "ra_sereci": {
+      "nombre": "Resolución administrativa del SERECI",
+      "fuente": "segip_ci",
+      "descripcion": "Respaldo exigido por la ficha del SEGIP para primera emisión de cédula de mayores de edad."
+    },
+    "partida_unica": {
+      "nombre": "Certificación de partida única",
+      "fuente": "segip_ci",
+      "descripcion": "Respaldo de registro civil requerido cuando corresponda según la ficha del SEGIP."
+    },
+    "ci_responsable": {
+      "nombre": "Cédula vigente del progenitor o responsable",
+      "fuente": "segip_ci",
+      "descripcion": "Identificación del adulto que acompaña al menor en las modalidades que lo exigen."
+    },
+    "tutela": {
+      "nombre": "Resolución judicial de tutela",
+      "fuente": "sereci_nac",
+      "descripcion": "Acredita la representación del tutor; el formato exigido se indica en cada trámite."
+    },
+    "poder": {
+      "nombre": "Poder notarial específico",
+      "fuente": "rejap_instructivo",
+      "descripcion": "Acredita facultades para el trámite concreto. Requisitos y legalizaciones varían por entidad y origen del poder."
+    },
+    "medico": {
+      "nombre": "Certificado de evaluación médica para conducir",
+      "fuente": "segip_lc",
+      "descripcion": "Evaluación emitida por un centro habilitado por SEGIP. La autorización del centro debe consultarse en el listado institucional vigente."
+    },
+    "habilidades": {
+      "nombre": "Certificado de aprobación de habilidades de conducción",
+      "fuente": "segip_lc",
+      "descripcion": "Respaldo de una autoescuela autorizada; no sustituye la evaluación médica."
+    },
+    "antecedentes_conducir": {
+      "nombre": "Certificados de antecedentes para primera licencia",
+      "fuente": "segip_lc",
+      "descripcion": "Para la primera licencia, la ficha menciona Tránsito, FELCC y FELCN o el servicio CUDAP. No equivale a REJAP."
+    },
+    "antecedentes_transito": {
+      "nombre": "Certificado de antecedentes de Tránsito",
+      "fuente": "segip_lc",
+      "descripcion": "La renovación de licencia exige el antecedente de Tránsito según la ficha del SEGIP."
+    },
+    "solicitud_pasaporte": {
+      "nombre": "Formato de solicitud de pasaporte",
+      "fuente": "pasaporte",
+      "descripcion": "Solicitud referida por la ficha ministerial; confirmar modalidad y documentos adicionales en Migración."
+    },
+    "respaldo_nacimiento": {
+      "nombre": "Prueba documental del nacimiento",
+      "fuente": "sereci_reg",
+      "descripcion": "La ficha admite nacido vivo, libreta escolar u otro respaldo con el nombre, junto a testigos; corresponde verificar el caso ante oficialía."
+    },
+    "fotos_licencia": {
+      "nombre": "Fotografías del frontis y elementos de identificación del negocio",
+      "fuente": "lp_licencia",
+      "descripcion": "Imágenes del inmueble y de cada letrero/VIAE con dimensiones en metros, según la modalidad municipal consultada."
+    },
+    "formulario_seprec": {
+      "nombre": "Formulario virtual de inscripción al SEPREC",
+      "fuente": "seprec",
+      "descripcion": "Declaración jurada completada por el propietario y aprobada con Ciudadanía Digital."
+    },
+    "autorizacion_regulador": {
+      "nombre": "Autorización del ente regulador",
+      "fuente": "seprec",
+      "descripcion": "Documento sectorial para actividades reguladas; se adjunta cuando corresponde al tipo de actividad."
+    },
+    "crpva": {
+      "nombre": "Certificado de Registro de Propiedad de Vehículo Automotor (CRPVA)",
+      "fuente": "lp_transferencia",
+      "descripcion": "Documento del vehículo requerido en las etapas de transferencia municipal indicadas por el GAMLP."
+    },
+    "minuta": {
+      "nombre": "Minuta o documento privado de transferencia con firmas reconocidas",
+      "fuente": "lp_transferencia",
+      "descripcion": "Instrumento de transferencia que la ficha del GAMLP requiere al iniciar el trámite."
+    },
+    "identidad_partes": {
+      "nombre": "Identificación vigente de vendedor y comprador",
+      "fuente": "lp_transferencia",
+      "descripcion": "La ficha de transferencia de personas naturales solicita documentación de ambas partes."
+    },
+    "testimonio_transferencia": {
+      "nombre": "Testimonio protocolizado de transferencia",
+      "fuente": "lp_transferencia",
+      "descripcion": "Documento de continuación de transferencia, después de las actuaciones correspondientes."
+    },
+    "resolucion_transferencia": {
+      "nombre": "Resolución de transferencia vehicular",
+      "fuente": "lp_transferencia",
+      "descripcion": "Documento requerido para continuar la transferencia según la ficha del GAMLP."
+    },
+    "convocatoria": {
+      "nombre": "Copia de convocatoria que motiva la solicitud REJAP",
+      "fuente": "rejap_instructivo",
+      "descripcion": "Se adjunta cuando el certificado se solicita para una convocatoria laboral."
+    }
+  },
+  "branches": [
+    {
+      "key": "atm_central",
+      "nombre": "ATM – Plataforma Central",
+      "institucion": "gamlp",
+      "fuente": "lp_transferencia",
+      "direccion": "Edificio Armando Escobar Uría, N.º 1298, ingreso por calle Colón, piso 1",
+      "ciudad": "La Paz",
+      "telefono": "155 opción 2",
+      "tramites": [
+        "transferencia-de-vehiculo"
+      ],
+      "horarios": [
+        {
+          "dia_semana": 1,
+          "hora_apertura": "08:00",
+          "hora_cierre": "19:00"
+        },
+        {
+          "dia_semana": 2,
+          "hora_apertura": "08:00",
+          "hora_cierre": "19:00"
+        },
+        {
+          "dia_semana": 3,
+          "hora_apertura": "08:00",
+          "hora_cierre": "19:00"
+        },
+        {
+          "dia_semana": 4,
+          "hora_apertura": "08:00",
+          "hora_cierre": "19:00"
+        },
+        {
+          "dia_semana": 5,
+          "hora_apertura": "08:00",
+          "hora_cierre": "19:00"
+        },
+        {
+          "dia_semana": 6,
+          "hora_apertura": "08:00",
+          "hora_cierre": "13:00"
+        }
+      ]
+    },
+    {
+      "key": "licencias_miraflores",
+      "nombre": "Licencias de actividades económicas – Miraflores",
+      "institucion": "gamlp",
+      "fuente": "lp_licencia",
+      "direccion": "Calle Chichas esquina Puente de las Américas, Edificio Torre ESPRA, N.º 1204, planta baja",
+      "ciudad": "La Paz",
+      "telefono": null,
+      "tramites": [
+        "licencia-de-funcionamiento"
+      ],
+      "horarios": []
+    }
+  ],
+  "procedures": [
+    {
+      "slug": "cedula-de-identidad",
+      "nombre": "Cédula de identidad: primera emisión",
+      "fuente": "segip_ci",
+      "institucion": "segip",
+      "descripcion": "Primera cédula física para bolivianos. La documentación cambia entre menores y mayores de edad; naturalización y casos con observaciones tienen variantes. Resumen de la ficha actual del SEGIP, no de la habilitación digital.",
+      "palabras_clave": [
+        "carnet",
+        "sacar carnet",
+        "cedula",
+        "primera vez",
+        "identidad"
+      ],
+      "estado_verificacion": "verificado",
+      "tiempo_estimado": null,
+      "fuentes_adicionales": [
+        "segip_reg"
+      ],
+      "requisitos": [
+        {
+          "nombre": "Respaldo de nacimiento",
+          "descripcion": "La primera emisión requiere certificado original del SERECI.",
+          "obligatorio": true,
+          "fuente": "segip_ci",
+          "observaciones": null
+        },
+        {
+          "nombre": "Requisitos según edad",
+          "descripcion": "Menores: presencia y adulto responsable. Mayores: resolución administrativa del SERECI; partida única cuando corresponda.",
+          "obligatorio": true,
+          "fuente": "segip_ci",
+          "observaciones": null
+        }
+      ],
+      "documentos": [
+        {
+          "documento": "nacimiento",
+          "obligatorio": true,
+          "presentacion": "original",
+          "cantidad": null,
+          "observaciones": null,
+          "fuente": "segip_ci"
+        },
+        {
+          "documento": "ci_responsable",
+          "obligatorio": false,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "Condicional: primera emisión de menor de edad; presencia del menor y acompañamiento conforme a la ficha.",
+          "fuente": "segip_ci"
+        },
+        {
+          "documento": "tutela",
+          "obligatorio": false,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "Condicional: tutor en ausencia de progenitores; presentar la resolución judicial.",
+          "fuente": "segip_ci"
+        },
+        {
+          "documento": "ra_sereci",
+          "obligatorio": false,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "Condicional: primera emisión de mayor de edad; original o copia legalizada.",
+          "fuente": "segip_ci"
+        },
+        {
+          "documento": "partida_unica",
+          "obligatorio": false,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "Condicional: primera emisión de mayor de edad, cuando corresponda según SEGIP.",
+          "fuente": "segip_ci"
+        }
+      ],
+      "pasos": [],
+      "costos": [
+        {
+          "concepto": "Emisión ordinaria de cédula física",
+          "monto": "17.00",
+          "moneda": "BOB",
+          "observaciones": "No corresponde a habilitación digital. La ficha contempla gratuidad específica para menores en acogida o situación de calle.",
+          "fuente": "segip_ci",
+          "estado_verificacion": "verificado",
+          "lugar_pago": "Banco Unión o su portal de pago digital",
+          "medio_pago": "Ventanilla bancaria o pago digital"
+        }
+      ]
+    },
+    {
+      "slug": "renovacion-de-cedula",
+      "nombre": "Renovación de cédula física",
+      "fuente": "segip_ci",
+      "institucion": "segip",
+      "descripcion": "Para registros consolidados, el SEGIP indica acudir y pagar sin presentar documentos. Cambios de estado civil o profesión sí requieren respaldo. El reglamento admite renovación desde seis meses antes del vencimiento y contempla excepciones justificadas.",
+      "palabras_clave": [
+        "renovar carnet",
+        "renovacion carnet",
+        "cedula vencida"
+      ],
+      "estado_verificacion": "verificado",
+      "tiempo_estimado": null,
+      "fuentes_adicionales": [
+        "segip_reg"
+      ],
+      "requisitos": [
+        {
+          "nombre": "Atención en oficina y pago",
+          "descripcion": "La ficha vigente no exige documentos para una renovación ordinaria sin actualización de datos.",
+          "obligatorio": true,
+          "fuente": "segip_ci",
+          "observaciones": null
+        }
+      ],
+      "documentos": [],
+      "pasos": [
+        {
+          "titulo": "Solicitar renovación en SEGIP",
+          "descripcion": "Acudir a una oficina operativa y efectuar el pago del servicio. Si también cambiarás datos, consulta los respaldos de esa modificación.",
+          "fuente": "segip_ci",
+          "institucion": "segip",
+          "observaciones": null
+        }
+      ],
+      "costos": [
+        {
+          "concepto": "Renovación ordinaria de cédula física",
+          "monto": "17.00",
+          "moneda": "BOB",
+          "observaciones": "Tarifa física publicada por SEGIP; no incluye otros trámites ni habilitación digital.",
+          "fuente": "segip_ci",
+          "estado_verificacion": "verificado",
+          "lugar_pago": "Banco Unión o su portal digital",
+          "medio_pago": "Ventanilla bancaria o pago digital"
+        }
+      ]
+    },
+    {
+      "slug": "certificado-de-nacimiento",
+      "nombre": "Certificado de nacimiento: duplicado",
+      "fuente": "sereci_nac",
+      "institucion": "sereci",
+      "descripcion": "Emisión de certificado de una partida ya registrada; no inscribe un hecho nuevo. La ficha distingue titular, familiares habilitados y representación. Verifica personería y registro electoral del solicitante con SERECI; los requisitos de apoderado o tutor son adicionales.",
+      "palabras_clave": [
+        "partida nacimiento",
+        "sacar certificado nacimiento",
+        "duplicado nacimiento"
+      ],
+      "estado_verificacion": "referencial",
+      "tiempo_estimado": "La ficha indica entrega inmediata tras la validación; no incluye espera de fila.",
+      "fuentes_adicionales": [],
+      "requisitos": [
+        {
+          "nombre": "Legitimación para solicitar el certificado",
+          "descripcion": "Debe solicitarlo una persona habilitada según la ficha: titular cuando proceda, familiar autorizado o representante acreditado.",
+          "obligatorio": true,
+          "fuente": "sereci_nac",
+          "observaciones": null
+        },
+        {
+          "nombre": "Registro electoral del solicitante",
+          "descripcion": "La ficha señala inscripción del solicitante en el Padrón Electoral Biométrico; confirmar aplicación al caso en ventanilla.",
+          "obligatorio": true,
+          "fuente": "sereci_nac",
+          "observaciones": null
+        }
+      ],
+      "documentos": [
+        {
+          "documento": "identidad",
+          "obligatorio": true,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "La ficha admite cédula, cédula de extranjero, pasaporte o DNI extranjero; no se exigen todos simultáneamente.",
+          "fuente": "sereci_nac"
+        },
+        {
+          "documento": "poder",
+          "obligatorio": false,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "Condicional: apoderado; poder especial original o copia legalizada dirigido al SERECI.",
+          "fuente": "sereci_nac"
+        },
+        {
+          "documento": "tutela",
+          "obligatorio": false,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "Condicional: tutor legal; copia legalizada de la decisión judicial. Otros representantes tienen respaldo propio.",
+          "fuente": "sereci_nac"
+        }
+      ],
+      "pasos": [
+        {
+          "titulo": "Solicitar y acreditar representación",
+          "descripcion": "Presentar identificación y, cuando corresponda, el respaldo de representación ante oficialía o SERECI habilitado.",
+          "fuente": "sereci_nac",
+          "institucion": "sereci",
+          "observaciones": null
+        },
+        {
+          "titulo": "Validación y entrega",
+          "descripcion": "La entidad contrasta la partida y la personería antes de imprimir y entregar el certificado.",
+          "fuente": "sereci_nac",
+          "institucion": "sereci",
+          "observaciones": null
+        }
+      ],
+      "costos": [
+        {
+          "concepto": "Duplicado de nacimiento: importe a confirmar",
+          "monto": null,
+          "moneda": "BOB",
+          "observaciones": "La ficha de duplicados publica 51 BOB en oficialía y 33 en SERECI; la ficha de inscripción menciona 50 por duplicado. No hay un importe único confirmado.",
+          "fuente": "sereci_nac",
+          "estado_verificacion": "referencial",
+          "lugar_pago": "Oficialía o SERECI habilitado",
+          "medio_pago": null
+        }
+      ]
+    },
+    {
+      "slug": "certificado-de-matrimonio",
+      "nombre": "Certificado de matrimonio: duplicado",
+      "fuente": "sereci_mat",
+      "institucion": "sereci",
+      "descripcion": "Emisión de certificado de una partida ya registrada; no inscribe un hecho nuevo. La ficha distingue titular, familiares habilitados y representación. Verifica personería y registro electoral del solicitante con SERECI; los requisitos de apoderado o tutor son adicionales.",
+      "palabras_clave": [
+        "certificado matrimonio",
+        "duplicado matrimonio"
+      ],
+      "estado_verificacion": "verificado",
+      "tiempo_estimado": "La ficha indica entrega inmediata tras la validación; no incluye espera de fila.",
+      "fuentes_adicionales": [],
+      "requisitos": [
+        {
+          "nombre": "Legitimación para solicitar el certificado",
+          "descripcion": "Debe solicitarlo una persona habilitada según la ficha: titular cuando proceda, familiar autorizado o representante acreditado.",
+          "obligatorio": true,
+          "fuente": "sereci_mat",
+          "observaciones": null
+        },
+        {
+          "nombre": "Registro electoral del solicitante",
+          "descripcion": "La ficha señala inscripción del solicitante en el Padrón Electoral Biométrico; confirmar aplicación al caso en ventanilla.",
+          "obligatorio": true,
+          "fuente": "sereci_mat",
+          "observaciones": null
+        }
+      ],
+      "documentos": [
+        {
+          "documento": "identidad",
+          "obligatorio": true,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "La ficha admite cédula, cédula de extranjero, pasaporte o DNI extranjero; no se exigen todos simultáneamente.",
+          "fuente": "sereci_mat"
+        },
+        {
+          "documento": "poder",
+          "obligatorio": false,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "Condicional: apoderado; poder especial original o copia legalizada dirigido al SERECI.",
+          "fuente": "sereci_mat"
+        }
+      ],
+      "pasos": [
+        {
+          "titulo": "Solicitar y acreditar representación",
+          "descripcion": "Presentar identificación y, cuando corresponda, el respaldo de representación ante oficialía o SERECI habilitado.",
+          "fuente": "sereci_mat",
+          "institucion": "sereci",
+          "observaciones": null
+        },
+        {
+          "titulo": "Validación y entrega",
+          "descripcion": "La entidad contrasta la partida y la personería antes de imprimir y entregar el certificado.",
+          "fuente": "sereci_mat",
+          "institucion": "sereci",
+          "observaciones": null
+        }
+      ],
+      "costos": [
+        {
+          "concepto": "Certificado en oficialía de Registro Civil",
+          "monto": "52.00",
+          "moneda": "BOB",
+          "observaciones": "Modalidad alternativa a oficina SERECI; no sumar ambas tarifas.",
+          "fuente": "sereci_mat",
+          "estado_verificacion": "verificado",
+          "lugar_pago": "Oficialía de Registro Civil",
+          "medio_pago": null
+        },
+        {
+          "concepto": "Certificado en oficina SERECI habilitada",
+          "monto": "34.00",
+          "moneda": "BOB",
+          "observaciones": "Modalidad alternativa a oficialía; no sumar ambas tarifas. Consulados tienen arancel propio.",
+          "fuente": "sereci_mat",
+          "estado_verificacion": "verificado",
+          "lugar_pago": "Oficina SERECI habilitada",
+          "medio_pago": null
+        }
+      ]
+    },
+    {
+      "slug": "certificado-de-defuncion",
+      "nombre": "Certificado de defunción: partida registrada",
+      "fuente": "sereci_def",
+      "institucion": "sereci",
+      "descripcion": "Emisión de certificado de una partida ya registrada; no inscribe un hecho nuevo. La ficha distingue titular, familiares habilitados y representación. Verifica personería y registro electoral del solicitante con SERECI; los requisitos de apoderado o tutor son adicionales.",
+      "palabras_clave": [
+        "certificado fallecimiento",
+        "duplicado defuncion"
+      ],
+      "estado_verificacion": "verificado",
+      "tiempo_estimado": "La ficha indica entrega inmediata tras la validación; no incluye espera de fila.",
+      "fuentes_adicionales": [],
+      "requisitos": [
+        {
+          "nombre": "Legitimación para solicitar el certificado",
+          "descripcion": "Debe solicitarlo una persona habilitada según la ficha: titular cuando proceda, familiar autorizado o representante acreditado.",
+          "obligatorio": true,
+          "fuente": "sereci_def",
+          "observaciones": null
+        },
+        {
+          "nombre": "Registro electoral del solicitante",
+          "descripcion": "La ficha señala inscripción del solicitante en el Padrón Electoral Biométrico; confirmar aplicación al caso en ventanilla.",
+          "obligatorio": true,
+          "fuente": "sereci_def",
+          "observaciones": null
+        }
+      ],
+      "documentos": [
+        {
+          "documento": "identidad",
+          "obligatorio": true,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "La ficha admite cédula, cédula de extranjero, pasaporte o DNI extranjero; no se exigen todos simultáneamente.",
+          "fuente": "sereci_def"
+        },
+        {
+          "documento": "poder",
+          "obligatorio": false,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "Condicional: apoderado; poder especial original o copia legalizada dirigido al SERECI.",
+          "fuente": "sereci_def"
+        }
+      ],
+      "pasos": [
+        {
+          "titulo": "Solicitar y acreditar representación",
+          "descripcion": "Presentar identificación y, cuando corresponda, el respaldo de representación ante oficialía o SERECI habilitado.",
+          "fuente": "sereci_def",
+          "institucion": "sereci",
+          "observaciones": null
+        },
+        {
+          "titulo": "Validación y entrega",
+          "descripcion": "La entidad contrasta la partida y la personería antes de imprimir y entregar el certificado.",
+          "fuente": "sereci_def",
+          "institucion": "sereci",
+          "observaciones": null
+        }
+      ],
+      "costos": [
+        {
+          "concepto": "Certificado en oficialía de Registro Civil",
+          "monto": "52.00",
+          "moneda": "BOB",
+          "observaciones": "Modalidad alternativa a oficina SERECI; no sumar ambas tarifas.",
+          "fuente": "sereci_def",
+          "estado_verificacion": "verificado",
+          "lugar_pago": "Oficialía de Registro Civil",
+          "medio_pago": null
+        },
+        {
+          "concepto": "Certificado en oficina SERECI habilitada",
+          "monto": "34.00",
+          "moneda": "BOB",
+          "observaciones": "Modalidad alternativa a oficialía; no sumar ambas tarifas. Consulados tienen arancel propio.",
+          "fuente": "sereci_def",
+          "estado_verificacion": "verificado",
+          "lugar_pago": "Oficina SERECI habilitada",
+          "medio_pago": null
+        }
+      ]
+    },
+    {
+      "slug": "licencia-de-conducir",
+      "nombre": "Licencia de conducir: primera vez, adultos",
+      "fuente": "segip_lc",
+      "institucion": "segip",
+      "descripcion": "Alcance: primera licencia física de adulto, categorías P, A, M y T. P/M desde 18 años y A/T desde 21 según ficha actual. Las autorizaciones juveniles, ascensos y licencias de extranjeros tienen requisitos propios.",
+      "palabras_clave": [
+        "sacar licencia",
+        "licencia nueva",
+        "brevete",
+        "permiso conducir"
+      ],
+      "estado_verificacion": "verificado",
+      "tiempo_estimado": null,
+      "fuentes_adicionales": [],
+      "requisitos": [
+        {
+          "nombre": "Edad según categoría",
+          "descripcion": "P y M: 18 años cumplidos. A y T: 21 años cumplidos.",
+          "obligatorio": true,
+          "fuente": "segip_lc",
+          "observaciones": null
+        },
+        {
+          "nombre": "Evaluaciones y antecedentes",
+          "descripcion": "Obtener evaluación médica acreditada, aprobación de conducción y antecedentes de Tránsito, FELCC y FELCN conforme a la ficha.",
+          "obligatorio": true,
+          "fuente": "segip_lc",
+          "observaciones": null
+        }
+      ],
+      "documentos": [
+        {
+          "documento": "ci",
+          "obligatorio": true,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "La ficha admite cédula física o digital vigente.",
+          "fuente": "segip_lc"
+        },
+        {
+          "documento": "medico",
+          "obligatorio": true,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "El centro registra el certificado al cierre del día; SEGIP indica acudir desde el día siguiente.",
+          "fuente": "segip_lc"
+        },
+        {
+          "documento": "habilidades",
+          "obligatorio": true,
+          "presentacion": "original",
+          "cantidad": null,
+          "observaciones": null,
+          "fuente": "segip_lc"
+        },
+        {
+          "documento": "antecedentes_conducir",
+          "obligatorio": true,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "Según modalidad, Policía o Estado Digital CUDAP. No es el certificado judicial REJAP.",
+          "fuente": "segip_lc"
+        }
+      ],
+      "pasos": [],
+      "costos": [
+        {
+          "concepto": "Emisión: categoría P o A",
+          "monto": "225.00",
+          "moneda": "BOB",
+          "observaciones": "Elegir una categoría. No sumar a la tarifa M/T ni a otra categoría.",
+          "fuente": "segip_lc",
+          "estado_verificacion": "verificado",
+          "lugar_pago": "Banco Unión o portal digital indicado por SEGIP",
+          "medio_pago": null
+        },
+        {
+          "concepto": "Emisión: categoría M o T",
+          "monto": "80.00",
+          "moneda": "BOB",
+          "observaciones": "Alternativa a P/A, según categoría elegida.",
+          "fuente": "segip_lc",
+          "estado_verificacion": "verificado",
+          "lugar_pago": "Banco Unión o portal digital indicado por SEGIP",
+          "medio_pago": null
+        },
+        {
+          "concepto": "Evaluación médica acreditada",
+          "monto": "50.00",
+          "moneda": "BOB",
+          "observaciones": "Pago separado en el centro elegido. No incluye autoescuela ni otros documentos.",
+          "fuente": "segip_lc",
+          "estado_verificacion": "verificado",
+          "lugar_pago": "Centro médico acreditado",
+          "medio_pago": null
+        }
+      ]
+    },
+    {
+      "slug": "renovacion-de-licencia",
+      "nombre": "Renovación de licencia de conducir",
+      "fuente": "segip_lc",
+      "institucion": "segip",
+      "descripcion": "Alcance: renovación ordinaria según categoría registrada. Exige cédula vigente, evaluación médica y antecedente de Tránsito. La ficha exige nuevamente habilidades de conducción si no se renovó en cinco años y un día.",
+      "palabras_clave": [
+        "renovar licencia",
+        "licencia vencida",
+        "renovacion conducir"
+      ],
+      "estado_verificacion": "verificado",
+      "tiempo_estimado": null,
+      "fuentes_adicionales": [],
+      "requisitos": [
+        {
+          "nombre": "Reunir documentos de renovación",
+          "descripcion": "Cédula vigente, evaluación médica acreditada y antecedente de Tránsito; ver la excepción por falta prolongada de renovación.",
+          "obligatorio": true,
+          "fuente": "segip_lc",
+          "observaciones": null
+        }
+      ],
+      "documentos": [
+        {
+          "documento": "ci",
+          "obligatorio": true,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "Física o digital vigente.",
+          "fuente": "segip_lc"
+        },
+        {
+          "documento": "medico",
+          "obligatorio": true,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "SEGIP indica acudir desde el día siguiente al registro del certificado por el centro médico.",
+          "fuente": "segip_lc"
+        },
+        {
+          "documento": "antecedentes_transito",
+          "obligatorio": true,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": null,
+          "fuente": "segip_lc"
+        },
+        {
+          "documento": "habilidades",
+          "obligatorio": false,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "Condicional: no haber renovado la licencia en cinco años y un día, según la ficha oficial.",
+          "fuente": "segip_lc"
+        }
+      ],
+      "pasos": [],
+      "costos": [
+        {
+          "concepto": "Renovación: P, A, B o C",
+          "monto": "225.00",
+          "moneda": "BOB",
+          "observaciones": "Tarifa según categoría; alternativa a M/T.",
+          "fuente": "segip_lc",
+          "estado_verificacion": "verificado",
+          "lugar_pago": "Banco Unión o portal digital indicado por SEGIP",
+          "medio_pago": null
+        },
+        {
+          "concepto": "Renovación: M o T",
+          "monto": "80.00",
+          "moneda": "BOB",
+          "observaciones": "Tarifa según categoría; alternativa a P/A/B/C.",
+          "fuente": "segip_lc",
+          "estado_verificacion": "verificado",
+          "lugar_pago": "Banco Unión o portal digital indicado por SEGIP",
+          "medio_pago": null
+        },
+        {
+          "concepto": "Evaluación médica acreditada",
+          "monto": "50.00",
+          "moneda": "BOB",
+          "observaciones": "Costo separado, pagado al centro elegido. No representa el total del trámite.",
+          "fuente": "segip_lc",
+          "estado_verificacion": "verificado",
+          "lugar_pago": "Centro médico acreditado",
+          "medio_pago": null
+        }
+      ]
+    },
+    {
+      "slug": "pasaporte",
+      "nombre": "Pasaporte boliviano: orientación de solicitud",
+      "fuente": "pasaporte",
+      "institucion": "migracion",
+      "descripcion": "Información referencial: la ficha ministerial identifica cédula vigente, solicitud y pago. No constituye una lista completa para menores, naturalizados, renovación o pérdida. Confirma modalidad, cita y arancel total con Migración antes de pagar; se detectaron importes distintos entre fuentes oficiales.",
+      "palabras_clave": [
+        "sacar pasaporte",
+        "pasaporte boliviano",
+        "viajar exterior"
+      ],
+      "estado_verificacion": "referencial",
+      "tiempo_estimado": null,
+      "fuentes_adicionales": [],
+      "requisitos": [],
+      "documentos": [
+        {
+          "documento": "ci",
+          "obligatorio": true,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": null,
+          "fuente": "pasaporte"
+        },
+        {
+          "documento": "solicitud_pasaporte",
+          "obligatorio": true,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": null,
+          "fuente": "pasaporte"
+        }
+      ],
+      "pasos": [],
+      "costos": [
+        {
+          "concepto": "Emisión de pasaporte: total pendiente de confirmación",
+          "monto": null,
+          "moneda": "BOB",
+          "observaciones": "No se adopta como total la cifra de 200 BOB de la ficha ministerial: otra ficha oficial indexada incorpora UFV. La URL antigua ya no entrega el PDF.",
+          "fuente": "pasaporte",
+          "estado_verificacion": "referencial",
+          "lugar_pago": "Canal que confirme Migración",
+          "medio_pago": null
+        }
+      ]
+    },
+    {
+      "slug": "certificado-de-antecedentes",
+      "nombre": "Certificado de antecedentes penales (REJAP)",
+      "fuente": "rejap_instructivo",
+      "institucion": "magistratura",
+      "descripcion": "Solicitud personal de antecedentes judiciales. REJAP es distinto de los antecedentes policiales y del certificado CENVI. Se revisaron el instructivo 15/2024 y el Reglamento 038/2019; la tarifa normativa se mantiene referencial hasta ratificarla en ventanilla.",
+      "palabras_clave": [
+        "rejap",
+        "antecedentes penales",
+        "certificado judicial"
+      ],
+      "estado_verificacion": "referencial",
+      "tiempo_estimado": null,
+      "fuentes_adicionales": [
+        "rejap"
+      ],
+      "requisitos": [
+        {
+          "nombre": "Solicitud del interesado",
+          "descripcion": "Trámite personal o mediante apoderado con facultades específicas. El interesado revisa y firma o coloca huella en el formulario.",
+          "obligatorio": true,
+          "fuente": "rejap",
+          "observaciones": null
+        }
+      ],
+      "documentos": [
+        {
+          "documento": "identidad",
+          "obligatorio": true,
+          "presentacion": "original_y_copia",
+          "cantidad": null,
+          "observaciones": "Identificación vigente admitida: cédula, pasaporte o libreta de servicio militar.",
+          "fuente": "rejap_instructivo"
+        },
+        {
+          "documento": "poder",
+          "obligatorio": false,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "Condicional: representante legal; original o copia legalizada y fotocopia simple, según instructivo.",
+          "fuente": "rejap_instructivo"
+        },
+        {
+          "documento": "convocatoria",
+          "obligatorio": false,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "Condicional: solicitud motivada por convocatoria laboral; adjuntar copia simple.",
+          "fuente": "rejap_instructivo"
+        }
+      ],
+      "pasos": [],
+      "costos": [
+        {
+          "concepto": "Certificado REJAP: tarifa normativa referencial",
+          "monto": "50.00",
+          "moneda": "BOB",
+          "observaciones": "Importe del art. 26 del Reglamento 038/2019. Confirmar tarifa vigente y punto de pago; no incluye certificados policiales.",
+          "fuente": "rejap",
+          "estado_verificacion": "referencial",
+          "lugar_pago": "Ventanilla o depósito conforme a indicación de REJAP",
+          "medio_pago": null
+        }
+      ]
+    },
+    {
+      "slug": "registro-de-nacimiento",
+      "nombre": "Registro de nacimiento: menores de 12 años en Bolivia",
+      "fuente": "sereci_reg",
+      "institucion": "sereci",
+      "descripcion": "Información referencial de la inscripción inicial de niños nacidos en territorio boliviano, de 0 a menos de 12 años. No equivale a pedir un duplicado. La prueba de filiación y los respaldos varían según solicitante; otros rangos de edad y nacimientos en el exterior tienen fichas distintas.",
+      "palabras_clave": [
+        "inscribir bebe",
+        "registrar nacimiento",
+        "recien nacido",
+        "registro civil"
+      ],
+      "estado_verificacion": "referencial",
+      "tiempo_estimado": "Ficha: inmediato; apellidos convencionales pueden requerir hasta 72 horas y actuaciones previas.",
+      "fuentes_adicionales": [],
+      "requisitos": [
+        {
+          "nombre": "Solicitante habilitado",
+          "descripcion": "Progenitor, tutor o persona habilitada en la ficha; representación y filiación deben acreditarse según el caso.",
+          "obligatorio": true,
+          "fuente": "sereci_reg",
+          "observaciones": null
+        },
+        {
+          "nombre": "Testigos y prueba de nacimiento",
+          "descripcion": "La ficha contempla respaldo del nacimiento y declaración de dos testigos mayores con identificación vigente. Confirmar los respaldos específicos ante oficialía.",
+          "obligatorio": true,
+          "fuente": "sereci_reg",
+          "observaciones": null
+        }
+      ],
+      "documentos": [
+        {
+          "documento": "identidad",
+          "obligatorio": true,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": null,
+          "fuente": "sereci_reg"
+        },
+        {
+          "documento": "respaldo_nacimiento",
+          "obligatorio": true,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": null,
+          "fuente": "sereci_reg"
+        },
+        {
+          "documento": "tutela",
+          "obligatorio": false,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "Condicional: solicitud de tutor; fotocopia legalizada de la decisión judicial.",
+          "fuente": "sereci_reg"
+        }
+      ],
+      "pasos": [
+        {
+          "titulo": "Presentar la solicitud en oficialía",
+          "descripcion": "La oficialía revisa la personería, la filiación y que no exista una inscripción anterior.",
+          "fuente": "sereci_reg",
+          "institucion": "sereci",
+          "observaciones": null
+        },
+        {
+          "titulo": "Revisar y suscribir la partida",
+          "descripcion": "Con los datos y pruebas aceptados, se imprime la partida para firmas y se entrega el primer certificado.",
+          "fuente": "sereci_reg",
+          "institucion": "sereci",
+          "observaciones": null
+        }
+      ],
+      "costos": [
+        {
+          "concepto": "Inscripción inicial y primer certificado",
+          "monto": "0.00",
+          "moneda": "BOB",
+          "observaciones": "La gratuidad de la ficha se refiere a la inscripción y primer certificado; no a duplicados posteriores.",
+          "fuente": "sereci_reg",
+          "estado_verificacion": "verificado",
+          "lugar_pago": "Oficialía de Registro Civil",
+          "medio_pago": null
+        }
+      ]
+    },
+    {
+      "slug": "nit",
+      "nombre": "NIT: inscripción de persona natural en el RNC",
+      "fuente": "sin_nit",
+      "institucion": "sin",
+      "descripcion": "Alcance: persona natural, no inscripción de sociedad ni de empresa unipersonal. Los requisitos adicionales dependen del sector. La RND de enero de 2026 exige finalizar en plataforma del SIN la inscripción iniciada en línea, con biometría y validación de originales cuando corresponda.",
+      "palabras_clave": [
+        "obtener nit",
+        "sacar nit",
+        "registro tributario",
+        "inscripcion impuestos"
+      ],
+      "estado_verificacion": "verificado",
+      "tiempo_estimado": null,
+      "fuentes_adicionales": [
+        "sin_rnd"
+      ],
+      "requisitos": [
+        {
+          "nombre": "Información de domicilios",
+          "descripcion": "Declarar domicilio tributario, comercial y habitual.",
+          "obligatorio": true,
+          "fuente": "sin_nit",
+          "observaciones": null
+        },
+        {
+          "nombre": "Revisar requisitos del sector",
+          "descripcion": "Profesionales, actividades agropecuarias, transporte, regímenes especiales y zonas francas tienen respaldos específicos. Consulta el apartado aplicable de la fuente.",
+          "obligatorio": true,
+          "fuente": "sin_nit",
+          "observaciones": null
+        }
+      ],
+      "documentos": [
+        {
+          "documento": "ci",
+          "obligatorio": true,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "Para extranjeros, la fuente contempla cédula de extranjería; esta ficha no desarrolla esa modalidad.",
+          "fuente": "sin_nit"
+        }
+      ],
+      "pasos": [
+        {
+          "titulo": "Solicitar inscripción al RNC",
+          "descripcion": "Completar la información y los respaldos correspondientes al tipo de persona y sector.",
+          "fuente": "sin_nit",
+          "institucion": "sin",
+          "observaciones": null
+        },
+        {
+          "titulo": "Finalizar y validar en plataforma del SIN",
+          "descripcion": "Si iniciaste en línea, acudir para registro biométrico y validación de documentación original o legalizada cuando corresponda; después se genera el NIT.",
+          "fuente": "sin_rnd",
+          "institucion": "sin",
+          "observaciones": null
+        },
+        {
+          "titulo": "Recibir credenciales",
+          "descripcion": "El SIN remite al correo registrado las credenciales de SIAT y enlaces de sus servicios.",
+          "fuente": "sin_rnd",
+          "institucion": "sin",
+          "observaciones": null
+        }
+      ],
+      "costos": []
+    },
+    {
+      "slug": "registro-de-actividad-economica",
+      "nombre": "Registro de actividad económica: alta en RNC",
+      "fuente": "sin_alta",
+      "institucion": "sin",
+      "descripcion": "Alcance: alta de actividad para persona natural o empresa unipersonal que ya tiene NIT. Se diferencia de la inscripción inicial y de la licencia municipal. El SIN permite actividades primarias y complementarias y pide actualizar sus porcentajes de significatividad.",
+      "palabras_clave": [
+        "registrar actividad",
+        "alta actividad",
+        "actividad economica",
+        "rnc"
+      ],
+      "estado_verificacion": "verificado",
+      "tiempo_estimado": null,
+      "fuentes_adicionales": [
+        "sin_actividad"
+      ],
+      "requisitos": [
+        {
+          "nombre": "Identificación del sujeto o responsable",
+          "descripcion": "Para persona natural y empresa unipersonal, la ficha de modificación exige el documento de identificación.",
+          "obligatorio": true,
+          "fuente": "sin_alta",
+          "observaciones": null
+        },
+        {
+          "nombre": "Actividad y porcentajes",
+          "descripcion": "Seleccionar alta y actualizar los porcentajes de las actividades vigentes. Actividades reguladas deben revisar autorización sectorial.",
+          "obligatorio": true,
+          "fuente": "sin_actividad",
+          "observaciones": null
+        }
+      ],
+      "documentos": [
+        {
+          "documento": "ci",
+          "obligatorio": true,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": null,
+          "fuente": "sin_alta"
+        }
+      ],
+      "pasos": [],
+      "costos": []
+    },
+    {
+      "slug": "apertura-de-negocio",
+      "nombre": "Apertura de negocio en La Paz (guía)",
+      "fuente": "lp_licencia",
+      "institucion": "gamlp",
+      "descripcion": "GUÍA DE ORIENTACIÓN DIRI. Abrir un negocio reúne gestiones diferentes: elegir forma de operación, Registro de Comercio cuando corresponda, inscripción tributaria según tipo de contribuyente y licencia municipal según actividad. No es un trámite único ni una secuencia obligatoria universal. Las fuentes enlazadas permiten seleccionar cada procedimiento; requisitos sectoriales y laborales deben revisarse por caso.",
+      "palabras_clave": [
+        "abrir negocio",
+        "abrir tienda",
+        "abrir restaurante",
+        "emprender",
+        "apertura negocio"
+      ],
+      "estado_verificacion": "referencial",
+      "tiempo_estimado": null,
+      "fuentes_adicionales": [
+        "seprec",
+        "sin_nit",
+        "sin_actividad"
+      ],
+      "requisitos": [],
+      "documentos": [],
+      "pasos": [],
+      "costos": []
+    },
+    {
+      "slug": "licencia-de-funcionamiento",
+      "nombre": "Licencia de funcionamiento en La Paz: comercio y servicios sin inspección",
+      "fuente": "lp_licencia",
+      "institucion": "gamlp",
+      "descripcion": "Alcance: persona natural, comercio y servicios en modalidad sin inspección del GAMLP. No cubre automáticamente alimentos, alcohol, industria ni multiservicios. La ficha exige registro ciudadano iGob y fotografías; para esta modalidad de persona natural señala NIT como opcional, lo que no sustituye obligaciones tributarias ante SIN.",
+      "palabras_clave": [
+        "licencia municipal",
+        "licencia tienda",
+        "permiso negocio",
+        "funcionamiento la paz"
+      ],
+      "estado_verificacion": "verificado",
+      "tiempo_estimado": "La ficha municipal publica 24–48 horas; sujeta a validación documental, no incluye la fila.",
+      "fuentes_adicionales": [],
+      "requisitos": [
+        {
+          "nombre": "Registro ciudadano iGob 24/7",
+          "descripcion": "Tener registro de persona natural y acceso a la plataforma.",
+          "obligatorio": true,
+          "fuente": "lp_licencia",
+          "observaciones": null
+        },
+        {
+          "nombre": "Modalidad municipal correspondiente",
+          "descripcion": "Confirmar que la actividad entra en comercio/servicios sin inspección; otras actividades requieren la ficha específica.",
+          "obligatorio": true,
+          "fuente": "lp_licencia",
+          "observaciones": null
+        }
+      ],
+      "documentos": [
+        {
+          "documento": "fotos_licencia",
+          "obligatorio": true,
+          "presentacion": "digital",
+          "cantidad": null,
+          "observaciones": null,
+          "fuente": "lp_licencia"
+        }
+      ],
+      "pasos": [
+        {
+          "titulo": "Acceder a iGob como persona natural",
+          "descripcion": "Contar con registro ciudadano para esta modalidad municipal.",
+          "fuente": "lp_licencia",
+          "institucion": "gamlp",
+          "observaciones": null
+        },
+        {
+          "titulo": "Presentar los respaldos",
+          "descripcion": "Adjuntar archivos por iGob o presentar originales y versión digital en plataforma presencial.",
+          "fuente": "lp_licencia",
+          "institucion": "gamlp",
+          "observaciones": null
+        },
+        {
+          "titulo": "Obtener la licencia",
+          "descripcion": "Una vez procesada la solicitud, descargar e imprimir desde iGob o plataforma de atención.",
+          "fuente": "lp_licencia",
+          "institucion": "gamlp",
+          "observaciones": null
+        }
+      ],
+      "costos": [
+        {
+          "concepto": "Emisión de licencia de esta modalidad",
+          "monto": "0.00",
+          "moneda": "BOB",
+          "observaciones": "La ficha municipal declara gratuita la licencia. Esto no significa que sean gratuitas las patentes, permisos sectoriales u obligaciones del negocio.",
+          "fuente": "lp_licencia",
+          "estado_verificacion": "verificado",
+          "lugar_pago": "iGob o plataforma GAMLP",
+          "medio_pago": null
+        }
+      ]
+    },
+    {
+      "slug": "registro-de-empresa",
+      "nombre": "Registro de empresa unipersonal en SEPREC",
+      "fuente": "seprec",
+      "institucion": "seprec",
+      "descripcion": "Alcance: comerciante individual o empresa unipersonal, no SRL ni SA. El propietario usa Ciudadanía Digital, completa declaración jurada y paga. Si la actividad está regulada, adjunta autorización en PDF. Luego obtiene su Matrícula de Comercio o subsana observaciones.",
+      "palabras_clave": [
+        "registrar empresa",
+        "empresa unipersonal",
+        "matricula comercio",
+        "seprec"
+      ],
+      "estado_verificacion": "verificado",
+      "tiempo_estimado": "Consultar plazo al presentar; se detectó diferencia entre página actual e índice del buscador.",
+      "fuentes_adicionales": [],
+      "requisitos": [
+        {
+          "nombre": "Ciudadanía Digital del propietario",
+          "descripcion": "La inscripción y aprobación del formulario se realizan con las credenciales del propietario.",
+          "obligatorio": true,
+          "fuente": "seprec",
+          "observaciones": null
+        }
+      ],
+      "documentos": [
+        {
+          "documento": "formulario_seprec",
+          "obligatorio": true,
+          "presentacion": "digital",
+          "cantidad": null,
+          "observaciones": null,
+          "fuente": "seprec"
+        },
+        {
+          "documento": "autorizacion_regulador",
+          "obligatorio": false,
+          "presentacion": "digital",
+          "cantidad": null,
+          "observaciones": "Condicional: solo actividad regulada por ley; adjuntar PDF en el formulario.",
+          "fuente": "seprec"
+        }
+      ],
+      "pasos": [
+        {
+          "titulo": "Completar inscripción y revisión del nombre",
+          "descripcion": "Ingresar al portal de trámites SEPREC con Ciudadanía Digital y completar el formulario, incluido el control de homonimia.",
+          "fuente": "seprec",
+          "institucion": "seprec",
+          "observaciones": null
+        },
+        {
+          "titulo": "Realizar el pago habilitado",
+          "descripcion": "Usar la plataforma de pagos del trámite. Revisar observaciones en la bandeja correspondiente.",
+          "fuente": "seprec",
+          "institucion": "seprec",
+          "observaciones": null
+        },
+        {
+          "titulo": "Descargar la Matrícula de Comercio",
+          "descripcion": "Al concluir favorablemente, obtener el certificado en la bandeja de certificados del portal.",
+          "fuente": "seprec",
+          "institucion": "seprec",
+          "observaciones": null
+        }
+      ],
+      "costos": [
+        {
+          "concepto": "Inscripción de empresa unipersonal",
+          "monto": "130.00",
+          "moneda": "BOB",
+          "observaciones": "Solo esta forma de registro comercial; no incluye NIT, licencia municipal ni constitución de sociedades.",
+          "fuente": "seprec",
+          "estado_verificacion": "verificado",
+          "lugar_pago": "Plataforma de pagos del SEPREC",
+          "medio_pago": "Pago habilitado en el portal de trámites"
+        }
+      ]
+    },
+    {
+      "slug": "tramites-relacionados-con-vehiculos",
+      "nombre": "Trámites de vehículos en La Paz (guía)",
+      "fuente": "lp_vehiculos",
+      "institucion": "gamlp",
+      "descripcion": "GUÍA DE ORIENTACIÓN. El catálogo del GAMLP diferencia transferencias, duplicados de propiedad o placa, radicatoria, modificaciones y bajas tributarias. Selecciona el caso concreto: los documentos, costos y actuaciones de Tránsito o DIPROVE no son iguales para todos. Esta entrada no establece un impuesto ni un plazo único.",
+      "palabras_clave": [
+        "tramites auto",
+        "tramites vehiculo",
+        "ruat",
+        "radicatoria",
+        "duplicado placa"
+      ],
+      "estado_verificacion": "referencial",
+      "tiempo_estimado": null,
+      "fuentes_adicionales": [
+        "lp_transferencia"
+      ],
+      "requisitos": [],
+      "documentos": [],
+      "pasos": [],
+      "costos": []
+    },
+    {
+      "slug": "transferencia-de-vehiculo",
+      "nombre": "Transferencia onerosa de vehículo en La Paz",
+      "fuente": "lp_transferencia",
+      "institucion": "gamlp",
+      "descripcion": "Alcance: transferencia ordinaria de persona natural ante GAMLP. Tiene inicio y continuación, con actuaciones posteriores en Tránsito, notaría y DIPROVE. No cubre herencias, adjudicaciones ni vehículos diplomáticos. El pago tributario por sí solo no consolida la propiedad.",
+      "palabras_clave": [
+        "transferir auto",
+        "cambio propietario vehiculo",
+        "venta auto",
+        "transferencia vehiculo la paz"
+      ],
+      "estado_verificacion": "referencial",
+      "tiempo_estimado": "La ficha menciona 20 minutos en plataforma ATM; no es el tiempo total ni la espera de fila.",
+      "fuentes_adicionales": [],
+      "requisitos": [
+        {
+          "nombre": "Vehículo sin impedimentos municipales",
+          "descripcion": "La ficha exige ausencia de deudas municipales, gravámenes, trámites pendientes y procesos de cobro de oficio o determinación mixta.",
+          "obligatorio": true,
+          "fuente": "lp_transferencia",
+          "observaciones": null
+        }
+      ],
+      "documentos": [
+        {
+          "documento": "crpva",
+          "obligatorio": true,
+          "presentacion": "original_y_copia",
+          "cantidad": null,
+          "observaciones": null,
+          "fuente": "lp_transferencia"
+        },
+        {
+          "documento": "minuta",
+          "obligatorio": true,
+          "presentacion": "original_y_copia",
+          "cantidad": null,
+          "observaciones": null,
+          "fuente": "lp_transferencia"
+        },
+        {
+          "documento": "identidad_partes",
+          "obligatorio": true,
+          "presentacion": "original_y_copia",
+          "cantidad": null,
+          "observaciones": null,
+          "fuente": "lp_transferencia"
+        },
+        {
+          "documento": "poder",
+          "obligatorio": false,
+          "presentacion": "original_y_copia",
+          "cantidad": null,
+          "observaciones": "Condicional: apoderado; debe acreditar facultades suficientes para esta transferencia.",
+          "fuente": "lp_transferencia"
+        },
+        {
+          "documento": "testimonio_transferencia",
+          "obligatorio": false,
+          "presentacion": null,
+          "cantidad": null,
+          "observaciones": "Condicional: etapa de continuación de transferencia; original o fotocopia según ficha.",
+          "fuente": "lp_transferencia"
+        },
+        {
+          "documento": "resolucion_transferencia",
+          "obligatorio": false,
+          "presentacion": "original_y_copia",
+          "cantidad": null,
+          "observaciones": "Condicional: etapa de continuación de transferencia.",
+          "fuente": "lp_transferencia"
+        }
+      ],
+      "pasos": [
+        {
+          "titulo": "Iniciar y revisar la declaración",
+          "descripcion": "Presentar requisitos en plataforma ATM, obtener ficha, revisar y firmar la declaración y recibir la proforma.",
+          "fuente": "lp_transferencia",
+          "institucion": "gamlp",
+          "observaciones": null
+        },
+        {
+          "titulo": "Pagar la liquidación y realizar actuaciones externas",
+          "descripcion": "La proforma puede pagarse por entidades habilitadas, banca en línea habilitada o QR RUAT. Proseguir ante Tránsito, notaría y DIPROVE según la ficha.",
+          "fuente": "lp_transferencia",
+          "institucion": "gamlp",
+          "observaciones": null
+        },
+        {
+          "titulo": "Continuar y recoger el documento",
+          "descripcion": "Volver al GAMLP con respaldos de continuación; recoger el CRPVA en Entrega de Valores.",
+          "fuente": "lp_transferencia",
+          "institucion": "gamlp",
+          "observaciones": null
+        }
+      ],
+      "costos": [
+        {
+          "concepto": "Transferencia: liquidación individual y valores",
+          "monto": null,
+          "moneda": "BOB",
+          "observaciones": "No hay un precio único en la ficha. El impuesto se liquida por caso; confirmar aranceles, valores y costos de otras entidades. No sumar como tarifa fija.",
+          "fuente": "lp_transferencia",
+          "estado_verificacion": "referencial",
+          "lugar_pago": "Entidades habilitadas según proforma ATM",
+          "medio_pago": "Ventanilla, banca en línea habilitada o QR RUAT"
+        }
+      ]
+    },
+    {
+      "slug": "certificados-sereci",
+      "nombre": "Certificados SERECI (guía)",
+      "fuente": "sereci_certs",
+      "institucion": "sereci",
+      "descripcion": "GUÍA DE ORIENTACIÓN. El SERECI diferencia duplicados de nacimiento, matrimonio y defunción de otras certificaciones: estado civil, partida única, filiación y existencia o inexistencia de partidas. Elige el certificado que exige la entidad receptora; no todos tienen el mismo costo ni requisitos.",
+      "palabras_clave": [
+        "certificados sereci",
+        "estado civil",
+        "partida unica",
+        "certificacion filiacion"
+      ],
+      "estado_verificacion": "referencial",
+      "tiempo_estimado": null,
+      "fuentes_adicionales": [
+        "sereci_catalogo",
+        "sereci_nac",
+        "sereci_mat",
+        "sereci_def"
+      ],
+      "requisitos": [],
+      "documentos": [],
+      "pasos": [],
+      "costos": []
+    },
+    {
+      "slug": "tramites-municipales",
+      "nombre": "Trámites municipales de La Paz (guía)",
+      "fuente": "lp_catalogo",
+      "institucion": "gamlp",
+      "descripcion": "GUÍA DE ORIENTACIÓN para el municipio de La Paz. El directorio institucional permite elegir trámites de negocios, vehículos y otros servicios municipales. Busca el procedimiento concreto antes de reunir documentos: no existe una lista de requisitos, un costo ni un horario aplicables a todos los trámites municipales.",
+      "palabras_clave": [
+        "alcaldia la paz",
+        "tramites municipales",
+        "gamlp",
+        "municipio la paz"
+      ],
+      "estado_verificacion": "referencial",
+      "tiempo_estimado": null,
+      "fuentes_adicionales": [
+        "lp_licencia",
+        "lp_vehiculos"
+      ],
+      "requisitos": [],
+      "documentos": [],
+      "pasos": [],
+      "costos": []
+    },
+    {
+      "slug": "reposicion-de-cedula",
+      "nombre": "Reposición de cédula física",
+      "fuente": "segip_ci",
+      "institucion": "segip",
+      "descripcion": "Para pérdida, hurto o deterioro, la ficha actual indica acudir al SEGIP y pagar; no exige presentar documentos. La reposición conserva los datos, fotografía y vencimiento originales. No equivale a renovar ni a habilitar el documento digital.",
+      "palabras_clave": [
+        "perdi carnet",
+        "carnet perdido",
+        "duplicado carnet",
+        "reposicion cedula"
+      ],
+      "estado_verificacion": "verificado",
+      "tiempo_estimado": null,
+      "fuentes_adicionales": [
+        "segip_reg"
+      ],
+      "requisitos": [
+        {
+          "nombre": "Solicitar reposición ordinaria",
+          "descripcion": "La ficha del SEGIP no pide documentación adicional para esta reposición; casos con observaciones requieren atención particular.",
+          "obligatorio": true,
+          "fuente": "segip_ci",
+          "observaciones": null
+        }
+      ],
+      "documentos": [],
+      "pasos": [
+        {
+          "titulo": "Acudir y pagar el servicio",
+          "descripcion": "Solicitar reposición física en oficina operativa del SEGIP. No se inventa requisito de denuncia policial.",
+          "fuente": "segip_ci",
+          "institucion": "segip",
+          "observaciones": null
+        }
+      ],
+      "costos": [
+        {
+          "concepto": "Reposición de cédula física",
+          "monto": "17.00",
+          "moneda": "BOB",
+          "observaciones": "Tarifa física publicada; conserva el vencimiento anterior.",
+          "fuente": "segip_ci",
+          "estado_verificacion": "verificado",
+          "lugar_pago": "Banco Unión o portal digital",
+          "medio_pago": "Ventanilla bancaria o pago digital"
+        }
+      ]
+    }
+  ]
+}

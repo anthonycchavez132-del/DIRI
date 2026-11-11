@@ -1,0 +1,10 @@
+<section class="auth-section container"><div class="auth-card"><h1>¿Cómo está la atención?</h1><p>Reporta tu experiencia actual. No incluyas nombres, números de carnet ni otros datos personales.</p>
+<?php if($sent): ?><p class="form-alert" role="status">Reporte recibido. Quedará pendiente de revisión antes de usarse en estimaciones.</p><?php endif; ?>
+<?php require BASE_PATH.'/app/views/auth/errors.php'; ?>
+<form class="auth-form" method="post" action="<?= e(url('reportar')) ?>"><?= csrf_field() ?>
+<div class="form-field"><label for="branch">Sucursal</label><select name="sucursal_id" id="branch" required><option value="">Selecciona</option><?php foreach($branches as $row): ?><option value="<?= (int)$row['id'] ?>" <?= (string)($formData['sucursal_id']??'')===(string)$row['id']?'selected':'' ?>><?= e($row['institucion'].' · '.$row['nombre']) ?></option><?php endforeach; ?></select></div>
+<div class="form-field"><label for="demand">Atención observada</label><select id="demand" name="nivel_demanda" required><?php foreach(['baja'=>'Rápida / baja demanda','media'=>'Normal / demanda media','alta'=>'Muy llena / alta demanda'] as $value=>$label): ?><option value="<?= e($value) ?>" <?= ($formData['nivel_demanda']??'media')===$value?'selected':'' ?>><?= e($label) ?></option><?php endforeach; ?></select></div>
+<div class="form-field"><label for="people">Personas esperando, aproximadamente (opcional)</label><input id="people" name="personas_esperando" type="number" min="0" max="10000" value="<?= e((string)($formData['personas_esperando']??'')) ?>"></div>
+<div class="form-field"><label for="minutes">Minutos que esperaste (opcional)</label><input id="minutes" name="tiempo_espera" type="number" min="0" max="1440" value="<?= e((string)($formData['tiempo_espera']??'')) ?>"></div>
+<div class="form-field"><label for="notes">Observaciones (opcional)</label><textarea id="notes" name="observaciones" maxlength="1000" rows="3"><?= e((string)($formData['observaciones']??'')) ?></textarea></div>
+<p>Deja vacío lo que desconoces. Indica al menos personas o minutos.</p><button class="button">Enviar reporte</button></form></div></section>

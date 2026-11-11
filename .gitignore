@@ -1,0 +1,11 @@
+/config/database.php
+/config/integrations.php
+/storage/logs/*
+/storage/backups/*
+!/storage/logs/.gitkeep
+/storage/cache/*
+!/storage/cache/.gitkeep
+/.env
+/.env.*
+!/.env.example
+/output/

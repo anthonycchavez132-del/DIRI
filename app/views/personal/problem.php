@@ -1,0 +1,1 @@
+<section class="admin-section container"><h1><?= e($title) ?></h1><p role="alert"><?= e($message) ?></p><a class="button" href="<?= e(url('dashboard')) ?>">Mi espacio</a><a href="<?= e(url('buscar')) ?>">Buscar trámites</a></section>
