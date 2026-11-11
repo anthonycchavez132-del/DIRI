@@ -141,6 +141,33 @@ Con Apache en subcarpeta, añade estas rutas después de `http://localhost/DIRI/
 
 ## Comprobaciones
 
+### Pruebas unitarias
+
+Desde la raíz de DIRI, ejecuta el siguiente comando en la terminal de PowerShell:
+
+```powershell
+& 'C:\xampp\php\php.exe' tests/unit.php
+```
+
+También puedes usar `php tests/unit.php` si PHP está disponible en el `PATH`.
+
+La suite incluye **39 casos unitarios** sobre funciones del proyecto. Se ejecuta con PHP y `mbstring`, de forma independiente de Apache, MariaDB y las credenciales locales.
+
+| Archivo | Casos | Funcionalidad comprobada |
+| --- | --- | --- |
+| `tests/unit/AuthValidatorTest.php` | 14 | Registro, correo, confirmación y límites de contraseñas |
+| `tests/unit/RoutePlannerTest.php` | 8 | Orden de pasos, dependencias, ciclos y referencias ajenas |
+| `tests/unit/LicenseJourneyTest.php` | 9 | Datos de personalización, categorías, documentos y fechas |
+| `tests/unit/CatalogHelpersTest.php` | 8 | Escape HTML, enlaces, obligatoriedad, fechas e identificadores |
+
+Cada caso compara el resultado esperado con el obtenido usando igualdad estricta. El ejecutor muestra `PASS` o `FAIL`, continúa con los demás casos y termina con código `0` si todos aprueban o `1` si hay fallos. Los errores y avisos de PHP también producen fallos visibles.
+
+Para demostrarlo en clase, abre `tests/unit/RoutePlannerTest.php` y el método `order()` de `app/services/RoutePlanner.php`. El caso de certificado médico y habilidades comprueba que ambos pasos precedan a la solicitud final, aunque los datos lleguen en otro orden. Ejecuta la suite en consola y muestra el resumen.
+
+El ejecutor está escrito en PHP y utiliza las clases reales mediante el arranque del proyecto. Para añadir un caso, incorpora una función con nombre descriptivo al arreglo de su archivo de pruebas. Para incorporar otro grupo, crea un archivo `*Test.php` en `tests/unit/`.
+
+### Conexión y sesiones
+
 Desde la raíz, con la base configurada e iniciada:
 
 ```powershell
