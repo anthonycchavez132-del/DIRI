@@ -189,7 +189,7 @@ Quedan pendientes las integraciones reales con instituciones, pagos, recordatori
 ## Equipo
 
 - Anthony Chavez Coronado
-- Sebastian Peñarrieta Peña
+- Sebastian Alejandro Peñarrieta Peña
 - Abel Daniel Osco Aquino
 
 ## Trabajo en equipo
