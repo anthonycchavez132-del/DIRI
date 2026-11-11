@@ -21,7 +21,7 @@ El sistema reúne en un solo lugar los requisitos, documentos, pasos, costos, su
 
 ## Tecnologías utilizadas
 
-- **Backend:** PHP 8.x con arquitectura MVC propia (sin framework)
+- **Backend:** PHP 8.0 con arquitectura MVC propia (sin framework)
 - **Base de datos:** MariaDB / MySQL vía XAMPP, acceso con PDO
 - **Interfaz de usuario:** HTML5, CSS3, JavaScript
 - **Servidor local:** Apache / XAMPP
@@ -103,6 +103,6 @@ DIRI/
 
 | Nombre | 
 | --- | 
-| Anthony Chavez Coronado 
-| Sebastian Alejandro Peñarrieta Peña 
-| Abel Daniel Osco Aquino
+| Anthony Chavez Coronado - lider de proyecto 
+| Sebastian Alejandro Peñarrieta Peña - Scrum master
+| Abel Daniel Osco Aquino - desarrollador backend y frontend
