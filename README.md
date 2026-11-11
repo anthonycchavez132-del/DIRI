@@ -101,8 +101,8 @@ DIRI/
 
 ## Integrantes
 
-| Nombre | Rol | Usuario de GitHub |
-| --- | --- | --- |
+| Nombre | 
+| --- | 
 | Anthony Chavez Coronado 
 | Sebastian Alejandro Peñarrieta Peña 
 | Abel Daniel Osco Aquino
