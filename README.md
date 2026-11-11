@@ -67,15 +67,15 @@ Las pruebas están en `tests/unit/` y se ejecutan desde la raíz del proyecto:
 php tests/unit.php
 ```
 
-Cada prueba muestra `PASS` o `FAIL` y al final se muestra el total de pruebas aprobadas y fallidas. No necesitan base de datos.
+La suite contiene **21 pruebas unitarias**. Cada prueba muestra `PASS` o `FAIL` y al final se muestra el total de pruebas aprobadas y fallidas. No necesitan base de datos.
 
-| Archivo | Qué comprueba |
-| --- | --- |
-| `AuthValidatorTest.php` | Validación de correo y contraseña en el registro |
-| `RoutePlannerTest.php` | Orden de los pasos de un trámite según sus dependencias |
-| `LicenseJourneyTest.php` | Datos de personalización de la licencia de conducir |
-| `CatalogHelpersTest.php` | Escape de HTML, enlaces, fechas e identificadores |
-| `DocumentValidityTest.php` | Documentos vigentes, por vencer (30 días) y vencidos |
+| Archivo | Casos | Qué comprueba |
+| --- | --- | --- |
+| `AuthValidatorTest.php` | 4 | Registro válido, correo inválido, contraseña corta y confirmación |
+| `RoutePlannerTest.php` | 3 | Orden de pasos, ciclos y dependencias ajenas a la ruta |
+| `LicenseJourneyTest.php` | 2 | Certificado médico declarado y categorías de primera licencia |
+| `CatalogHelpersTest.php` | 3 | Escape de HTML, enlaces e identificadores inválidos |
+| `DocumentValidityTest.php` | 9 | Vencimientos, documentos disponibles, fechas y zona horaria de Bolivia |
 
 ## Estructura del Repositorio
 
