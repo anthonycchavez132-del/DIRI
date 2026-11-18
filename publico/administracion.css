@@ -1,0 +1,25 @@
+/* DIRI · Tablas de administración y opciones de la cuenta. */
+
+.tabla-contenedor { overflow-x: auto; border: 1px solid var(--linea); border-radius: 14px; background: white; margin: 24px 0; }
+table { width: 100%; border-collapse: collapse; text-align: left; background: white; font-size: .85rem; }
+th, td { padding: 17px 20px; vertical-align: top; border-bottom: 1px solid #e6eded; overflow-wrap: anywhere; }
+thead th { color: var(--suave); background: #edf3f2; text-transform: uppercase; font-size: .68rem; letter-spacing: .08em; }
+tbody th { color: var(--tinta); font-weight: 650; }
+tbody tr:hover { background: #f9fcfb; }
+tbody tr:last-child > * { border-bottom: 0; }
+td form { margin: 12px 0 0; }
+td button { background: #fff5ef; border-color: #edd6c9; color: #924b2c; padding: 8px 12px; min-height: 36px; font-size: .75rem; }
+td button:hover { color: #7b3525; background: #fbe7dd; border-color: #dbbba9; }
+td a { display: inline-block; margin: 0 8px 5px 0; font-weight: 600; }
+.opciones-cuenta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 28px 0; }
+.opciones-cuenta a { background: white; padding: 23px; border: 1px solid var(--linea); border-radius: 12px; text-decoration: none; font-weight: 650; }
+.opciones-cuenta a:hover { border-color: var(--verde); }
+
+@media (max-width: 900px) {
+    .opciones-cuenta { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+    .opciones-cuenta { grid-template-columns: 1fr; }
+    th, td { padding: 14px; min-width: 120px; }
+}

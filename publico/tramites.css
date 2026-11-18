@@ -1,0 +1,20 @@
+/* DIRI · Catálogo público y tarjetas de trámites. */
+
+.catalogo { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin: 22px 0; }
+.tramite-tarjeta { display: flex; flex-direction: column; padding: 25px; border: 1px solid var(--linea); border-radius: var(--radio); background: white; transition: border-color .2s, transform .2s; }
+.tramite-tarjeta:hover { border-color: #89bcae; transform: translateY(-3px); }
+.tramite-tarjeta .numero-catalogo { font-size: .75rem; color: var(--verde); font-weight: 750; letter-spacing: .08em; margin-bottom: 20px; }
+.tramite-tarjeta h2 { font-size: 1.2rem; margin: 0 0 14px; line-height: 1.35; }
+.tramite-tarjeta > p { font-size: .88rem; color: var(--suave); }
+.tramite-tarjeta details { font-size: .83rem; color: var(--suave); margin-bottom: 20px; }
+.tramite-tarjeta .boton { margin-top: auto; width: 100%; }
+.fuente { display: block; margin-top: 16px; font-size: .76rem; color: var(--suave); }
+
+@media (max-width: 900px) {
+    .catalogo { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+    .catalogo { grid-template-columns: 1fr; }
+    .tramite-tarjeta { padding: 23px; }
+}

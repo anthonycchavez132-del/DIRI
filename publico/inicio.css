@@ -1,0 +1,56 @@
+/* DIRI · Portada, categorías y explicación del servicio. */
+
+.pagina-inicio { background: #fafbf8; }
+.pagina-inicio main { margin-top: 0; }
+.portada { display: grid; grid-template-columns: 1.2fr 1fr; gap: 70px; align-items: center; padding: 74px 0 66px; }
+.portada h1 { font-size: clamp(2.65rem, 5vw, 4.3rem); letter-spacing: -.065em; line-height: 1.07; margin: 24px 0; max-width: 650px; }
+.portada h1 em { color: var(--verde); font-style: normal; }
+.portada .descripcion { color: var(--suave); font-size: 1.1rem; max-width: 490px; line-height: 1.8; }
+.acciones { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin: 28px 0 20px; }
+.portada .nota { font-size: .8rem; color: var(--suave); }
+.vista-ruta { padding: 30px; border: 1px solid #d1e4df; border-radius: 26px; background: #eef5ef; position: relative; }
+.vista-ruta::before { content: ''; position: absolute; width: 120px; height: 120px; top: -25px; right: -20px; z-index: -1; background: #f3e4bf; border-radius: 50%; }
+.vista-ruta > p { font-size: .75rem; font-weight: 700; color: var(--verde); letter-spacing: .1em; text-transform: uppercase; }
+.ruta-ilustrada { position: relative; height: 138px; background: radial-gradient(#b9d4ca 1px, transparent 1px); background-size: 15px 15px; margin: 8px 0 24px; }
+.ruta-ilustrada svg { width: 100%; height: 100%; }
+.ruta-tarjeta { background: white; padding: 18px; border-radius: 14px; display: flex; align-items: center; gap: 14px; margin-top: 10px; box-shadow: 0 4px 10px #153f4905; }
+.ruta-tarjeta .numero { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid #cde2d8; color: var(--verde); font-size: .8rem; border-radius: 50%; font-weight: 700; flex-shrink: 0; }
+.ruta-tarjeta strong { display: block; font-size: .9rem; color: var(--tinta); }
+.ruta-tarjeta small { font-size: .75rem; }
+.franja-confianza { display: flex; gap: 26px; align-items: center; justify-content: space-between; padding: 23px 0; border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); margin-bottom: 60px; font-size: .85rem; color: var(--suave); }
+.franja-confianza strong { color: var(--tinta); font-weight: 650; }
+.tarjetas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.tarjeta { border: 1px solid var(--linea); border-radius: var(--radio); padding: 28px; background: white; box-shadow: var(--sombra); }
+.tarjeta h3 { margin: 0 0 12px; }
+.tarjeta p { color: var(--suave); font-size: .92rem; }
+.tarjeta > a { font-weight: 650; font-size: .88rem; text-decoration: none; }
+.como-funciona { margin: 72px 0 0; padding: 42px; background: var(--tinta); border-radius: 24px; color: #d9e8e9; }
+.como-funciona h2 { color: white; margin-top: 0; }
+.como-funciona ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; list-style: none; padding: 10px 0 0; margin-bottom: 0; counter-reset: paso-inicio; }
+.como-funciona li { counter-increment: paso-inicio; font-size: .92rem; }
+.como-funciona li::before { content: '0' counter(paso-inicio); display: block; font-size: .8rem; letter-spacing: .1em; color: #8dd9bb; margin-bottom: 12px; }
+.como-funciona strong { display: block; margin-bottom: 8px; color: white; }
+
+@media (max-width: 900px) {
+    .portada { gap: 30px; padding: 50px 0; }
+    .vista-ruta { padding: 20px; }
+    .tarjetas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .tarjetas > :last-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 640px) {
+    .pagina-inicio header nav a:first-child { display: none; }
+    .portada { grid-template-columns: 1fr; gap: 28px; padding: 40px 0 34px; }
+    .portada h1 { font-size: 2.9rem; }
+    .portada .descripcion { font-size: 1rem; }
+    .vista-ruta::before { display: none; }
+    .ruta-ilustrada { height: 100px; margin-bottom: 18px; }
+    .vista-ruta { padding: 24px; }
+    .franja-confianza { gap: 16px; flex-wrap: wrap; justify-content: flex-start; margin-bottom: 38px; font-size: .78rem; }
+    .tarjetas { grid-template-columns: 1fr; }
+    .tarjetas > :last-child { grid-column: auto; }
+    .tarjeta { padding: 23px; }
+    .como-funciona { padding: 26px; margin-top: 40px; }
+    .como-funciona ol { grid-template-columns: 1fr; gap: 24px; }
+    .acciones .boton { flex: 1; }
+}

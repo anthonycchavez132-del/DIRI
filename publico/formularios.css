@@ -1,0 +1,39 @@
+/* DIRI · Campos, formularios, acceso y registro. */
+
+input, select, textarea { font: inherit; }
+input, select, textarea { -webkit-tap-highlight-color: transparent; }
+form { margin: 0 0 24px; }
+main > form:not([method='get']) { background: white; padding: 30px; border: 1px solid var(--linea); border-radius: var(--radio); box-shadow: var(--sombra); }
+form p { margin-bottom: 22px; }
+label { font-size: .88rem; font-weight: 600; color: var(--tinta); }
+label > br, form p > br { display: none; }
+input:not([type='hidden']):not([type='checkbox']):not([type='radio']), select, textarea { width: 100%; max-width: 100%; min-width: 0; margin-top: 7px; padding: 12px 14px; color: var(--tinta); border: 1px solid #cbdada; background: #fcfdfd; border-radius: 9px; line-height: 1.5; }
+textarea { resize: vertical; }
+input:focus, select:focus, textarea:focus { border-color: var(--verde); background: white; }
+input[readonly] { background: #edf2f1 !important; color: var(--suave) !important; }
+input[type='checkbox'], input[type='radio'] { width: 19px; height: 19px; accent-color: var(--verde); margin: 0 8px 0 0; vertical-align: middle; flex-shrink: 0; }
+input[type='date'], input[type='datetime-local'] { max-width: 340px !important; }
+form small { margin-top: 6px; }
+fieldset { min-width: 0; border: 1px solid var(--linea); border-radius: 12px; padding: 22px; margin: 0 0 26px; }
+legend { max-width: 100%; padding: 0 8px; font-size: 1rem; color: var(--tinta); font-weight: 700; line-height: 1.4; }
+fieldset fieldset { margin: 20px 0; background: #fafcfb; }
+fieldset p:last-child { margin-bottom: 0; }
+fieldset > p { color: var(--suave); font-size: .88rem; }
+main > form[method='get'] { display: flex; align-items: end; flex-wrap: wrap; gap: 12px; background: white; padding: 22px; border: 1px solid var(--linea); border-radius: 14px; }
+main > form[method='get'] > label { flex-basis: 100%; }
+main > form[method='get'] > input:not([type='hidden']), main > form[method='get'] > select { flex: 1; width: auto; min-width: min(240px, 100%); margin: 0; }
+main > form[method='get'] > a { padding: 10px; font-size: .88rem; }
+.pagina-formulario main { max-width: 900px; }
+.pagina-acceso main { max-width: 540px; }
+.pagina-acceso form button { width: 100%; }
+.pagina-acceso main > p { text-align: center; font-size: .9rem; }
+.pagina-acceso > header > h1 { text-align: center; }
+
+@media (max-width: 640px) {
+    main > form:not([method='get']) { padding: 20px 16px; }
+    fieldset { padding: 18px 14px; }
+    main > form[method='get'] { padding: 18px; }
+    main > form[method='get'] > input:not([type='hidden']), main > form[method='get'] > select { flex-basis: 100%; width: 100%; }
+    main > form[method='get'] > button { flex: 1; }
+    input[type='date'], input[type='datetime-local'] { width: 100%; max-width: 100% !important; }
+}

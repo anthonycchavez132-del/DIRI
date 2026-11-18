@@ -1,108 +1,86 @@
-# DIRI - Guía Web de Trámites en Bolivia
+# DIRI
 
-## Descripción del Proyecto
+Aplicación web para preparar trámites en La Paz. La persona elige un trámite, indica su ubicación y marca los documentos vigentes que ya tiene. DIRI incorpora la obtención de los requisitos pendientes al recorrido y organiza la visita final.
 
-DIRI es una aplicación web que ayuda a las personas a preparar sus trámites en Bolivia, tomando como referencia los procedimientos de La Paz.
+Esta es la versión reconstruida del proyecto, desarrollada con PHP estricto y MVC propio. Las versiones anteriores y sus contribuciones permanecen en el historial de Git.
 
-El sistema reúne en un solo lugar los requisitos, documentos, pasos, costos, sucursales y fuentes de cada trámite. Además, permite personalizar la preparación de la licencia de conducir, llevar un checklist de avance, reportar tiempos de espera en sucursales y consultar el catálogo mediante una API pública.
+## Tecnologías
 
-## Características Principales
+- PHP 8.0 o superior, con PDO MySQL, cURL y mbstring.
+- MySQL/MariaDB y Apache mediante XAMPP.
+- HTML, JavaScript y CSS propio, sin frameworks.
+- OpenStreetMap y el servicio peatonal OSRM de FOSSGIS para el mapa y las conexiones a pie.
+- Enlaces de Google Maps para abrir las paradas en el orden planificado.
 
-- **Autenticación y Control de Accesos:** registro e inicio de sesión con roles diferenciados (Usuario y Administrador), planes Free y Premium, contraseñas encriptadas, protección CSRF y límite de intentos de acceso.
-- **Buscador de Trámites:** búsqueda por nombre, palabras clave y expresiones habituales (por ejemplo, "quiero sacar mi carnet").
-- **Ficha de Trámite:** requisitos, documentos, pasos ordenados, costos en bolivianos (Bs.), instituciones, horarios y fuentes, indicando si la información es verificada o referencial.
-- **Guías Sencillas:** veinte guías de acceso público para los trámites más comunes.
-- **Personalización de Licencia de Conducir:** ruta de preparación para primera licencia o renovación según los documentos que tiene la persona y sus fechas de vencimiento.
-- **Checklist y Biblioteca Premium:** favoritos, avance por documentos y pasos, historial de consultas y rutas guardadas.
-- **Reportes de Atención:** los usuarios reportan tiempos de espera en sucursales; el administrador los modera y el sistema muestra intervalos estimados de espera.
-- **Comparación de Sucursales:** recomendación de sucursal según horarios, disponibilidad y tiempos de espera vigentes.
-- **Panel Administrativo:** gestión de trámites, instituciones, sucursales, horarios, documentos, fuentes, usuarios y planes, con historial de auditoría.
-- **API Pública:** consulta del catálogo en formato JSON (`/api/v1/tramites?q=...`).
+## Instalación en XAMPP
 
-## Tecnologías utilizadas
+1. Iniciar Apache y MySQL.
+2. Clonar el repositorio en una carpeta llamada **DIRI2**:
 
-- **Backend:** PHP 8.0 con arquitectura MVC propia (sin framework)
-- **Base de datos:** MariaDB / MySQL vía XAMPP, acceso con PDO
-- **Interfaz de usuario:** HTML5, CSS3, JavaScript
-- **Servidor local:** Apache / XAMPP
-
-## Plan de Desarrollo por Fases
-
-| Fase | Módulo / Enfoque |
-| --- | --- |
-| Fases 1 a 7 | Base de datos, autenticación y sesiones, dashboard, administración de trámites, requisitos y documentos |
-| Fase 8 | Instituciones y sucursales |
-| Fase 9 | Pasos y rutas de trámites |
-| Fase 10 | Costos y fuentes |
-| Fase 11 | Buscador y ficha pública |
-| Fase 12 | Checklist y progreso |
-| Fase 13 | Reportes ciudadanos |
-| Fase 14 | Estimación de tiempos de espera |
-| Fase 15 | Comparación de sucursales y rutas |
-| Fase 16 | Panel administrativo completo |
-| Fase 17 | Planes Free y Premium |
-| Fase 18 | Diseño responsive y accesibilidad |
-| Fase 19 | API pública de consulta |
-| Fase 20 | Integraciones oficiales preparadas |
-
-El detalle de cada fase está en `docs/avance.md`.
-
-## Instalación
-
-1. Clonar el repositorio en `C:\xampp\htdocs`:
+   ```bash
+   git clone https://github.com/anthonycchavez132-del/DIRI.git C:/xampp/htdocs/DIRI2
    ```
-   git clone https://github.com/anthonycchavez132-del/DIRI.git
-   ```
-2. Copiar `config/database.example.php` como `config/database.php` y colocar los datos de conexión.
-3. Iniciar Apache y MySQL en XAMPP e importar `database/diri.sql` desde phpMyAdmin.
-4. Abrir `http://localhost/DIRI/` en el navegador.
 
-Los pasos completos (administrador inicial y carga del catálogo) están en `database/README.md`.
+3. Importar `diri2.sql` desde phpMyAdmin en una instalación nueva, con la base `diri2` vacía. El archivo contiene la estructura, los triggers de auditoría y el catálogo; no contiene cuentas personales ni las auditorías de la instalación original.
+4. Revisar `modelos/Conexion.php`: la configuración local usa MySQL en `127.0.0.1:3306`, base `diri2`, usuario `root` y contraseña vacía. Adaptarla si XAMPP utiliza otras credenciales.
+5. Abrir **http://localhost/DIRI2/**. Si Apache usa otro puerto, incluirlo en la dirección.
+6. Crear una cuenta desde el formulario de registro. Las cuentas nuevas tienen rol `usuario`.
 
-## Pruebas Unitarias
+Para habilitar un administrador en tu propia instalación, después de registrar su cuenta, ejecutar en phpMyAdmin sustituyendo el correo:
 
-Las pruebas están en `tests/unit/` y se ejecutan desde la raíz del proyecto:
-
-```
-php tests/unit.php
+```sql
+UPDATE usuarios
+SET rol = 'administrador'
+WHERE correo = 'correo-de-tu-cuenta';
 ```
 
-La suite contiene **21 pruebas unitarias**. Cada prueba muestra `PASS` o `FAIL` y al final se muestra el total de pruebas aprobadas y fallidas. No necesitan base de datos.
+El nombre local `DIRI2` corresponde a la ruta de las cookies de sesión configurada en `index.php`. El repositorio público conserva el nombre DIRI.
 
-| Archivo | Casos | Qué comprueba |
-| --- | --- | --- |
-| `AuthValidatorTest.php` | 4 | Registro válido, correo inválido, contraseña corta y confirmación |
-| `RoutePlannerTest.php` | 3 | Orden de pasos, ciclos y dependencias ajenas a la ruta |
-| `LicenseJourneyTest.php` | 2 | Certificado médico declarado y categorías de primera licencia |
-| `CatalogHelpersTest.php` | 3 | Escape de HTML, enlaces e identificadores inválidos |
-| `DocumentValidityTest.php` | 9 | Vencimientos, documentos disponibles, fechas y zona horaria de Bolivia |
+## Funcionalidad actual
 
-## Estructura del Repositorio
+- Registro e inicio de sesión, contraseñas almacenadas con `password_hash` y comprobadas con `password_verify`.
+- Roles de usuario y administrador, protección CSRF y validaciones del servidor.
+- Catálogo con diez trámites básicos y fuentes consultadas.
+- Gestión administrativa de trámites, documentos, establecimientos, gestiones y horarios; desactivación lógica de registros.
+- Selección de documentos disponibles para omitir pasos de obtención.
+- Planificación de visitas con dependencias, esperas entre días y horarios configurados.
+- Comparación de recorridos: menor distancia y tiempo estimado como desempate. La búsqueda tiene un límite de tiempo y avisa si no completó toda la comparación.
+- Mapa con paradas numeradas y enlaces a Google Maps por tramos y visitas.
+- Interfaz adaptable a celulares y hojas CSS separadas por responsabilidad.
 
-```
-DIRI/
-├── app/
-│   ├── controllers/   # Controladores de cada módulo
-│   ├── core/          # Router, sesiones y conexión a la base de datos
-│   ├── helpers/       # Funciones de uso general
-│   ├── middleware/    # Control de acceso y protección CSRF
-│   ├── models/        # Modelos y consultas a la base de datos
-│   ├── services/      # Reglas de negocio y validaciones
-│   └── views/         # Pantallas del sistema
-├── config/            # Configuración del sistema
-├── database/          # Script SQL, migraciones y vistas
-├── docs/              # Documentación de cada módulo
-├── public/            # Punto de entrada, estilos CSS y scripts JS
-├── routes/            # Rutas web y de la API
-├── scripts/           # Comandos de administración
-├── tests/             # Pruebas unitarias y de integración
-└── README.md          # Documentación del repositorio
+Los casos especiales se indican en la descripción de cada trámite. Los lugares sin horario publicado requieren confirmación; los tiempos de atención no registrados hacen que la finalización sea una estimación mínima. El mapa y el cálculo peatonal requieren conexión a Internet. Google Maps recalcula los caminos al abrir sus enlaces.
+
+## Organización MVC
+
+```text
+DIRI2/
+  index.php          Entrada y selección de controladores
+  controladores/     Recepción de solicitudes, validaciones y respuestas
+  modelos/           Conexión, consultas y reglas del recorrido
+  vistas/            Pantallas HTML y su presentación
+  publico/           Estilos generales y por módulo
+  diri2.sql          Estructura y catálogo para una instalación nueva
 ```
 
-## Integrantes
+La base contiene diez tablas: `usuarios`, `tramites`, `documentos`, `tramite_documentos`, `gestiones`, `gestion_dependencias`, `establecimientos`, `gestion_establecimientos`, `horarios` y `auditorias`.
 
-| Nombre | 
-| --- | 
-| Anthony Chavez Coronado - lider de proyecto 
-| Sebastian Alejandro Peñarrieta Peña - Scrum master
-| Abel Daniel Osco Aquino - desarrollador backend y frontend
+## Referencias para explicar el código
+
+- **Validaciones:** `controladores/UsuarioController.php`, método `registro()`: nombres, correo, longitud de contraseña, confirmación y correo duplicado. El servidor rechaza entradas inválidas aunque se evite la validación HTML.
+- **Tipos estrictos:** `declare(strict_types=1)` en los archivos PHP. `modelos/Usuario.php`, método `crear()`, declara parámetros `string`, un apellido opcional `?string` y retorno `int`.
+- **Estructuras de datos:** `modelos/Recorrido.php` usa arreglos asociativos para documentos y gestiones, matrices de distancias y duraciones, y relaciones de dependencias que representan un grafo dirigido. `explorar()` recorre alternativas de forma recursiva respetando sus requisitos previos.
+- **Persistencia:** `modelos/Usuario.php` utiliza consultas preparadas PDO para insertar y consultar usuarios.
+- **Auditorías:** los triggers de las tablas de negocio registran cambios en `auditorias`. Las contraseñas no se incluyen en el contenido de esas auditorías.
+
+## Integrantes e historial
+
+- Anthony Chavez Coronado.
+- Sebastian Peñarrieta Peña.
+- Abel Daniel Osco Aquino.
+
+Las contribuciones se comprueban revisando los commits y sus cambios. El historial de versiones anteriores se conserva; las aportaciones a esta versión deben identificarse por los archivos y cambios que efectivamente contiene cada commit.
+
+```bash
+git log --oneline --all
+git show IDENTIFICADOR_DEL_COMMIT
+```

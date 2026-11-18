@@ -1,11 +1,15 @@
-/config/database.php
-/config/integrations.php
-/storage/logs/*
-/storage/backups/*
-!/storage/logs/.gitkeep
-/storage/cache/*
-!/storage/cache/.gitkeep
-/.env
-/.env.*
-!/.env.example
-/output/
+# Archivos locales del equipo
+.vscode/
+.idea/
+.env
+.env.*
+!.env.example
+*.log
+*.tmp
+Thumbs.db
+Desktop.ini
+
+# Copias locales con datos privados
+*.bak
+*.backup
+*-privado.sql
