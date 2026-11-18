@@ -72,15 +72,8 @@ La base contiene diez tablas: `usuarios`, `tramites`, `documentos`, `tramite_doc
 - **Persistencia:** `modelos/Usuario.php` utiliza consultas preparadas PDO para insertar y consultar usuarios.
 - **Auditorías:** los triggers de las tablas de negocio registran cambios en `auditorias`. Las contraseñas no se incluyen en el contenido de esas auditorías.
 
-## Integrantes e historial
+## Integrantes
 
 - Anthony Chavez Coronado.
 - Sebastian Peñarrieta Peña.
 - Abel Daniel Osco Aquino.
-
-Las contribuciones se comprueban revisando los commits y sus cambios. El historial de versiones anteriores se conserva; las aportaciones a esta versión deben identificarse por los archivos y cambios que efectivamente contiene cada commit.
-
-```bash
-git log --oneline --all
-git show IDENTIFICADOR_DEL_COMMIT
-```
