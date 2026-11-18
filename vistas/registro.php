@@ -64,7 +64,7 @@ if (!defined('DIRI_ENTRADA')) {
             <p>
                 <label for="contrasena">Contraseña</label><br>
                 <input type="password" id="contrasena" name="contrasena" required minlength="8" maxlength="72" autocomplete="new-password" aria-describedby="requisito-contrasena">
-                <small id="requisito-contrasena">Usa al menos 8 caracteres.</small>
+                <small id="requisito-contrasena">Usa al menos 8 caracteres, con una letra y un número.</small>
             </p>
 
             <p>

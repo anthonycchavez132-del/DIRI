@@ -46,17 +46,7 @@ final class UsuarioController
                     $errores[] = 'Escribe un correo electrónico válido.';
                 }
 
-                if (mb_strlen($contrasena, 'UTF-8') < 8) {
-                    $errores[] = 'La contraseña debe tener al menos 8 caracteres.';
-                }
-
-                if (!mb_check_encoding($contrasena, 'UTF-8') || strlen($contrasena) > 72 || str_contains($contrasena, "\0")) {
-                    $errores[] = 'La contraseña supera el tamaño permitido o contiene un carácter inválido.';
-                }
-
-                if ($contrasena !== $confirmacion) {
-                    $errores[] = 'Las contraseñas deben coincidir.';
-                }
+                $errores = array_merge($errores, $this->validarContrasena($contrasena, $confirmacion));
 
                 if ($errores === []) {
                     try {
@@ -338,6 +328,34 @@ final class UsuarioController
         session_destroy();
 
         header('Location: index.php', true, 303);
+    }
+
+    /**
+     * Reglas de contraseña compartidas por el registro y el cambio de contraseña.
+     *
+     * @return list<string> mensajes de error; vacío si la contraseña es válida
+     */
+    private function validarContrasena(string $contrasena, string $confirmacion): array
+    {
+        $errores = [];
+
+        if (mb_strlen($contrasena, 'UTF-8') < 8) {
+            $errores[] = 'La contraseña debe tener al menos 8 caracteres.';
+        }
+
+        if (!mb_check_encoding($contrasena, 'UTF-8') || strlen($contrasena) > 72 || str_contains($contrasena, "\0")) {
+            $errores[] = 'La contraseña supera el tamaño permitido o contiene un carácter inválido.';
+        }
+
+        if (preg_match('/\p{L}/u', $contrasena) !== 1 || preg_match('/\p{N}/u', $contrasena) !== 1) {
+            $errores[] = 'La contraseña debe incluir al menos una letra y un número.';
+        }
+
+        if ($contrasena !== $confirmacion) {
+            $errores[] = 'Las contraseñas deben coincidir.';
+        }
+
+        return $errores;
     }
 
     private function campo(string $nombre): string
