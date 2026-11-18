@@ -49,17 +49,7 @@ final class UsuarioController
                     $errores[] = 'Escribe un correo electrónico válido.';
                 }
 
-                if (mb_strlen($contrasena, 'UTF-8') < 8) {
-                    $errores[] = 'La contraseña debe tener al menos 8 caracteres.';
-                }
-
-                if (!mb_check_encoding($contrasena, 'UTF-8') || strlen($contrasena) > 72 || str_contains($contrasena, "\0")) {
-                    $errores[] = 'La contraseña supera el tamaño permitido o contiene un carácter inválido.';
-                }
-
-                if ($contrasena !== $confirmacion) {
-                    $errores[] = 'Las contraseñas deben coincidir.';
-                }
+                $errores = array_merge($errores, $this->validarContrasena($contrasena, $confirmacion));
 
                 if ($errores === []) {
                     try {
@@ -146,7 +136,59 @@ final class UsuarioController
             return;
         }
 
+        $mensaje = $_SESSION['mensaje_panel'] ?? '';
+        unset($_SESSION['mensaje_panel']);
+
         require __DIR__ . '/../vistas/panel.php';
+    }
+
+    public function cambiarContrasena(): void
+    {
+        $usuario = $this->usuarioActual();
+
+        if ($usuario === null) {
+            header('Location: index.php?pagina=login', true, 303);
+            return;
+        }
+
+        $errores = [];
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $actual = $this->campo('contrasena_actual');
+            $nueva = $this->campo('contrasena_nueva');
+            $confirmacion = $this->campo('confirmacion');
+
+            if (!$this->csrfValido()) {
+                http_response_code(403);
+                $errores[] = 'La sesión del formulario venció. Vuelve a enviarlo.';
+            } else {
+                $modelo = new Usuario();
+                $hash = $modelo->obtenerHashContrasena((int) $usuario['id']);
+
+                if ($actual === '' || strlen($actual) > 72 || $hash === null || !password_verify($actual, $hash)) {
+                    $errores[] = 'La contraseña actual no es correcta.';
+                }
+
+                $errores = array_merge($errores, $this->validarContrasena($nueva, $confirmacion));
+
+                if ($errores === [] && $actual === $nueva) {
+                    $errores[] = 'La contraseña nueva debe ser distinta de la actual.';
+                }
+
+                if ($errores === []) {
+                    $modelo->cambiarContrasena((int) $usuario['id'], $nueva);
+                    session_regenerate_id(true);
+                    $_SESSION['csrf'] = bin2hex(random_bytes(32));
+                    $_SESSION['mensaje_panel'] = 'Tu contraseña fue actualizada.';
+                    header('Location: index.php?pagina=panel', true, 303);
+                    return;
+                }
+
+                http_response_code(422);
+            }
+        }
+
+        require __DIR__ . '/../vistas/cambiar_contrasena.php';
     }
 
     public function listarUsuarios(): void
@@ -375,6 +417,34 @@ final class UsuarioController
         }
 
         $_SESSION['login_intentos'] = $intentos;
+    }
+
+    /**
+     * Reglas de contraseña compartidas por el registro y el cambio de contraseña.
+     *
+     * @return list<string> mensajes de error; vacío si la contraseña es válida
+     */
+    private function validarContrasena(string $contrasena, string $confirmacion): array
+    {
+        $errores = [];
+
+        if (mb_strlen($contrasena, 'UTF-8') < 8) {
+            $errores[] = 'La contraseña debe tener al menos 8 caracteres.';
+        }
+
+        if (!mb_check_encoding($contrasena, 'UTF-8') || strlen($contrasena) > 72 || str_contains($contrasena, "\0")) {
+            $errores[] = 'La contraseña supera el tamaño permitido o contiene un carácter inválido.';
+        }
+
+        if (preg_match('/\p{L}/u', $contrasena) !== 1 || preg_match('/\p{N}/u', $contrasena) !== 1) {
+            $errores[] = 'La contraseña debe incluir al menos una letra y un número.';
+        }
+
+        if ($contrasena !== $confirmacion) {
+            $errores[] = 'Las contraseñas deben coincidir.';
+        }
+
+        return $errores;
     }
 
     private function campo(string $nombre): string

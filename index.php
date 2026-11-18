@@ -69,6 +69,11 @@ try {
             $controlador->panel();
             break;
 
+        case 'cambiar_contrasena':
+            $controlador = new UsuarioController();
+            $controlador->cambiarContrasena();
+            break;
+
         case 'salir':
             $controlador = new UsuarioController();
             $controlador->cerrarSesion();
