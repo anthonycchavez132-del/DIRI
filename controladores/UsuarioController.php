@@ -6,6 +6,9 @@ require_once __DIR__ . '/../modelos/Usuario.php';
 
 final class UsuarioController
 {
+    private const MAX_INTENTOS_LOGIN = 5;
+    private const SEGUNDOS_BLOQUEO_LOGIN = 300;
+
     public function registro(): void
     {
         $errores = [];
@@ -99,9 +102,15 @@ final class UsuarioController
             $correo = strtolower(trim($this->campo('correo')));
             $contrasena = $this->campo('contrasena');
 
+            $segundosBloqueo = $this->segundosDeBloqueo();
+
             if (!$this->csrfValido()) {
                 http_response_code(403);
                 $errores[] = 'La sesión del formulario venció. Vuelve a enviarlo.';
+            } elseif ($segundosBloqueo > 0) {
+                http_response_code(429);
+                header('Retry-After: ' . $segundosBloqueo);
+                $errores[] = 'Demasiados intentos fallidos. Espera ' . (int) ceil($segundosBloqueo / 60) . ' minuto(s) antes de volver a intentarlo.';
             } elseif (strlen($correo) > 254 || !filter_var($correo, FILTER_VALIDATE_EMAIL) || $contrasena === '' || strlen($contrasena) > 72 || str_contains($contrasena, "\0")) {
                 http_response_code(422);
                 $errores[] = 'Revisa el correo y la contraseña.';
@@ -110,9 +119,11 @@ final class UsuarioController
                 $usuario = $modelo->buscarPorCorreo($correo);
 
                 if ($usuario === null || !password_verify($contrasena, $usuario['contrasena']) || $usuario['estado'] !== 'activo') {
+                    $this->registrarIntentoFallido();
                     http_response_code(401);
                     $errores[] = 'No se pudo iniciar sesión con esos datos.';
                 } else {
+                    unset($_SESSION['login_intentos'], $_SESSION['login_bloqueado_hasta']);
                     session_regenerate_id(true);
                     $_SESSION['usuario_id'] = (int) $usuario['id'];
                     $_SESSION['csrf'] = bin2hex(random_bytes(32));
@@ -338,6 +349,32 @@ final class UsuarioController
         session_destroy();
 
         header('Location: index.php', true, 303);
+    }
+
+    /** Segundos que faltan para que termine el bloqueo de inicio de sesión; 0 si no hay bloqueo. */
+    private function segundosDeBloqueo(): int
+    {
+        $hasta = $_SESSION['login_bloqueado_hasta'] ?? 0;
+
+        if (!is_int($hasta) || $hasta <= time()) {
+            unset($_SESSION['login_bloqueado_hasta']);
+            return 0;
+        }
+
+        return $hasta - time();
+    }
+
+    private function registrarIntentoFallido(): void
+    {
+        $intentos = $_SESSION['login_intentos'] ?? 0;
+        $intentos = (is_int($intentos) ? $intentos : 0) + 1;
+
+        if ($intentos >= self::MAX_INTENTOS_LOGIN) {
+            $_SESSION['login_bloqueado_hasta'] = time() + self::SEGUNDOS_BLOQUEO_LOGIN;
+            $intentos = 0;
+        }
+
+        $_SESSION['login_intentos'] = $intentos;
     }
 
     private function campo(string $nombre): string
