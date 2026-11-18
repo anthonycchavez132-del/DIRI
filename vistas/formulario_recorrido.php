@@ -80,14 +80,7 @@ if (!defined('DIRI_ENTRADA')) {
                     <input type="hidden" id="latitud" name="latitud" value="<?= htmlspecialchars($datos['latitud'], ENT_QUOTES, 'UTF-8') ?>">
                     <input type="hidden" id="longitud" name="longitud" value="<?= htmlspecialchars($datos['longitud'], ENT_QUOTES, 'UTF-8') ?>">
                     <noscript><p>Activa JavaScript en tu navegador para obtener tu ubicación y preparar el recorrido.</p></noscript>
-                    <p>
-                        <label><input type="checkbox" id="salida-actual" name="salida_actual" value="1" <?= ($datos['salida_actual'] ?? '1') === '1' ? 'checked' : '' ?>> Salir ahora</label>
-                    </p>
-                    <p>
-                        <label for="salida">Fecha y hora previstas de salida en La Paz</label><br>
-                        <input type="datetime-local" id="salida" name="salida" required value="<?= htmlspecialchars($datos['salida'], ENT_QUOTES, 'UTF-8') ?>">
-                        <br><small>Para planificar otra fecha, desmarca «Salir ahora».</small>
-                    </p>
+                    <p>El recorrido se calculará desde la fecha y hora actuales de La Paz, respetando los horarios de atención.</p>
                 </fieldset>
 
                 <fieldset>
@@ -164,15 +157,6 @@ if (!defined('DIRI_ENTRADA')) {
         }
 
         if (formulario) {
-            const salidaActual = document.getElementById('salida-actual');
-            const fechaSalida = document.getElementById('salida');
-            const actualizarSalida = function () {
-                fechaSalida.readOnly = salidaActual.checked;
-                fechaSalida.required = !salidaActual.checked;
-            };
-            salidaActual.addEventListener('change', actualizarSalida);
-            actualizarSalida();
-
             formulario.addEventListener('submit', function (evento) {
                 if (!ubicacionLista()) {
                     evento.preventDefault();

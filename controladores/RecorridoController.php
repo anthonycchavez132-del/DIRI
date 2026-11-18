@@ -51,7 +51,7 @@ final class RecorridoController
         $datos = $this->datosIniciales();
         $errores = [];
 
-        foreach (['tramite_id', 'latitud', 'longitud', 'salida'] as $campo) {
+        foreach (['tramite_id', 'latitud', 'longitud'] as $campo) {
             $valor = $_POST[$campo] ?? '';
 
             if (!is_string($valor)) {
@@ -62,12 +62,6 @@ final class RecorridoController
             }
 
             $datos[$campo] = $valor;
-        }
-
-        $datos['salida_actual'] = ($_POST['salida_actual'] ?? '') === '1' ? '1' : '0';
-
-        if ($datos['salida_actual'] === '1') {
-            $datos['salida'] = date('Y-m-d\TH:i');
         }
 
         $token = $_POST['csrf'] ?? null;
@@ -109,13 +103,7 @@ final class RecorridoController
             $errores[] = 'Necesitamos tu punto de partida. Pulsa «Usar mi ubicación» y permite el acceso antes de calcular el recorrido.';
         }
 
-        $salida = $this->fecha($datos['salida'], true);
-        $ahora = new DateTimeImmutable();
-        $minutoActual = $ahora->setTime((int) $ahora->format('H'), (int) $ahora->format('i'));
-
-        if ($salida === null || $salida < $minutoActual) {
-            $errores[] = 'Selecciona una fecha y hora de salida actuales o futuras.';
-        }
+        $salida = new DateTimeImmutable('now', new DateTimeZone('America/La_Paz'));
 
         $entrada = $_POST['documentos'] ?? [];
         $documentos = [];
@@ -148,7 +136,7 @@ final class RecorridoController
                 $fechaVence = $vence === '' ? null : $this->fecha($vence);
 
                 if (($emision !== '' && $fechaEmision === null) || ($vence !== '' && $fechaVence === null)
-                    || ($fechaEmision !== null && $salida !== null && $fechaEmision > $salida)
+                    || ($fechaEmision !== null && $fechaEmision > $salida)
                     || ($fechaEmision !== null && $fechaVence !== null && $fechaVence < $fechaEmision)) {
                     $errores[] = 'Revisa las fechas de ' . $contexto['documentos'][$documentoId]['nombre'] . '.';
                     continue;
@@ -192,7 +180,7 @@ final class RecorridoController
     {
         return [
             'tramite_id' => '', 'latitud' => '', 'longitud' => '',
-            'salida' => date('Y-m-d\TH:i'), 'salida_actual' => '1', 'documentos' => [],
+            'documentos' => [],
         ];
     }
 
@@ -207,12 +195,10 @@ final class RecorridoController
         return $id === false ? null : $id;
     }
 
-    private function fecha(string $valor, bool $incluyeHora = false): ?DateTimeImmutable
+    private function fecha(string $valor): ?DateTimeImmutable
     {
-        $patron = $incluyeHora
-            ? '/\A[1-9][0-9]{3}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}\z/'
-            : '/\A[1-9][0-9]{3}-[0-9]{2}-[0-9]{2}\z/';
-        $formato = $incluyeHora ? 'Y-m-d\TH:i' : 'Y-m-d';
+        $patron = '/\A[1-9][0-9]{3}-[0-9]{2}-[0-9]{2}\z/';
+        $formato = 'Y-m-d';
 
         if (preg_match($patron, $valor) !== 1) {
             return null;

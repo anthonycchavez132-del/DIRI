@@ -106,7 +106,7 @@ foreach ($resultado['visitas'] as $indice => $paso) {
         <?php endif; ?>
         <details class="detalles-ruta"><summary>Ver fechas, esperas y tiempo total estimado</summary>
         <dl>
-            <dt>Salida prevista</dt>
+            <dt>Inicio del recorrido al realizar la consulta</dt>
             <dd><?= htmlspecialchars($resultado['salida']->format('d/m/Y H:i'), ENT_QUOTES, 'UTF-8') ?></dd>
             <dt>Distancia a pie</dt>
             <dd><?= number_format($resultado['distancia'] / 1000, 2, ',', '.') ?> km</dd>

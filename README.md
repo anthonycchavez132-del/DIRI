@@ -45,6 +45,7 @@ El nombre local `DIRI2` corresponde a la ruta de las cookies de sesión configur
 - Gestión administrativa de trámites, documentos, establecimientos, gestiones y horarios; desactivación lógica de registros.
 - Selección de documentos disponibles para omitir pasos de obtención.
 - Planificación de visitas con dependencias, esperas entre días y horarios configurados.
+- La salida se establece automáticamente con la fecha y hora actuales de La Paz al calcular el recorrido.
 - Comparación de recorridos: menor distancia y tiempo estimado como desempate. La búsqueda tiene un límite de tiempo y avisa si no completó toda la comparación.
 - Mapa con paradas numeradas y enlaces a Google Maps por tramos y visitas.
 - Interfaz adaptable a celulares y hojas CSS separadas por responsabilidad.
