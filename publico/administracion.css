@@ -13,6 +13,11 @@ td a { display: inline-block; margin: 0 8px 5px 0; font-weight: 600; }
 .opciones-cuenta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 28px 0; }
 .opciones-cuenta a { background: white; padding: 23px; border: 1px solid var(--linea); border-radius: 12px; text-decoration: none; font-weight: 650; }
 .opciones-cuenta a:hover { border-color: var(--verde); }
+.confirmacion-usuario { margin-bottom: 28px; padding: 24px; border: 1px solid #e6ca94; border-radius: 14px; background: #fff8e7; }
+.confirmacion-usuario h2 { font-size: 1.3rem; margin-top: 0; }
+.confirmacion-usuario p { overflow-wrap: anywhere; }
+.confirmacion-usuario form { margin-bottom: 0; }
+.acciones-usuario { display: flex; gap: 12px; flex-wrap: wrap; }
 
 @media (max-width: 900px) {
     .opciones-cuenta { grid-template-columns: repeat(2, 1fr); }

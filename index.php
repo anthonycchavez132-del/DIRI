@@ -73,6 +73,16 @@ try {
             $controlador->cerrarSesion();
             break;
 
+        case 'usuarios':
+            $controlador = new UsuarioController();
+            $controlador->listarUsuarios();
+            break;
+
+        case 'eliminar_usuario':
+            $controlador = new UsuarioController();
+            $controlador->eliminarUsuario();
+            break;
+
         case 'tramites':
             $controlador = new TramiteController();
             $controlador->listar();

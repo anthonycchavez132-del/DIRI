@@ -34,6 +34,7 @@ if (!defined('DIRI_ENTRADA')) {
             <a href="index.php?pagina=tramites">Consultar trámites</a>
             <a href="index.php?pagina=preparar_recorrido">Preparar recorrido</a>
             <?php if ($usuario['rol'] === 'administrador'): ?>
+                <a href="index.php?pagina=usuarios">Administrar usuarios</a>
                 <a href="index.php?pagina=nuevo_tramite">Crear trámite</a>
                 <a href="index.php?pagina=documentos">Administrar documentos</a>
                 <a href="index.php?pagina=establecimientos">Administrar establecimientos</a>

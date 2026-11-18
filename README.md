@@ -40,6 +40,7 @@ El nombre local `DIRI2` corresponde a la ruta de las cookies de sesión configur
 
 - Registro e inicio de sesión, contraseñas almacenadas con `password_hash` y comprobadas con `password_verify`.
 - Roles de usuario y administrador, protección CSRF y validaciones del servidor.
+- Administración de usuarios con confirmación y eliminación lógica; se bloquea el acceso de las cuentas inactivas.
 - Catálogo con diez trámites básicos y fuentes consultadas.
 - Gestión administrativa de trámites, documentos, establecimientos, gestiones y horarios; desactivación lógica de registros.
 - Selección de documentos disponibles para omitir pasos de obtención.
@@ -64,9 +65,14 @@ DIRI2/
 
 La base contiene diez tablas: `usuarios`, `tramites`, `documentos`, `tramite_documentos`, `gestiones`, `gestion_dependencias`, `establecimientos`, `gestion_establecimientos`, `horarios` y `auditorias`.
 
-## Referencias para explicar el código
+## Validaciones y seguridad
 
 - **Validaciones:** `controladores/UsuarioController.php`, método `registro()`: nombres, correo, longitud de contraseña, confirmación y correo duplicado. El servidor rechaza entradas inválidas aunque se evite la validación HTML.
+- **Datos personales:** nombres y apellidos admiten letras, espacios, guiones y apóstrofes; el apellido materno es opcional. Se rechazan tipos de entrada incorrectos y textos con codificación inválida.
+- **Inicio de sesión:** correo válido, contraseña obligatoria, verificación del hash y cuenta activa. Las credenciales incorrectas y las cuentas inactivas reciben un mensaje general. Al iniciar sesión se renuevan el identificador de sesión y el token CSRF.
+- **Eliminación de usuarios:** el administrador selecciona una cuenta y confirma la acción. El servidor exige POST, CSRF válido, confirmación explícita e identificador válido. Vuelve a comprobar el permiso del responsable dentro de una transacción, impide la eliminación de la propia cuenta y conserva al menos un administrador activo. La cuenta queda inactiva y el trigger registra el cambio.
+- **Sesiones existentes:** cada solicitud protegida consulta el estado y el rol actuales en la base de datos; una cuenta desactivada pierde acceso aunque conserve una sesión anterior.
+- **Otros formularios:** los controladores validan identificadores, longitudes, estados y permisos. También se comprueban las coordenadas y fuentes de los establecimientos, los solapamientos de horarios y las dependencias entre gestiones.
 - **Tipos estrictos:** `declare(strict_types=1)` en los archivos PHP. `modelos/Usuario.php`, método `crear()`, declara parámetros `string`, un apellido opcional `?string` y retorno `int`.
 - **Estructuras de datos:** `modelos/Recorrido.php` usa arreglos asociativos para documentos y gestiones, matrices de distancias y duraciones, y relaciones de dependencias que representan un grafo dirigido. `explorar()` recorre alternativas de forma recursiva respetando sus requisitos previos.
 - **Persistencia:** `modelos/Usuario.php` utiliza consultas preparadas PDO para insertar y consultar usuarios.

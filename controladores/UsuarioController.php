@@ -23,16 +23,23 @@ final class UsuarioController
                 http_response_code(403);
                 $errores[] = 'La sesión del formulario venció. Vuelve a enviarlo.';
             } else {
-                if ($datos['nombre'] === '' || mb_strlen($datos['nombre'], 'UTF-8') > 150) {
-                    $errores[] = 'Escribe un nombre de hasta 150 caracteres.';
+                foreach (['nombre', 'apellido_paterno', 'apellido_materno', 'correo', 'contrasena', 'confirmacion'] as $campo) {
+                    if (!is_string($_POST[$campo] ?? '')) {
+                        $errores[] = 'Los campos del registro deben contener texto.';
+                        break;
+                    }
                 }
 
-                if ($datos['apellido_paterno'] === '' || mb_strlen($datos['apellido_paterno'], 'UTF-8') > 100) {
-                    $errores[] = 'Escribe un apellido paterno de hasta 100 caracteres.';
+                if (!$this->nombreValido($datos['nombre'], 150)) {
+                    $errores[] = 'Escribe un nombre de hasta 150 caracteres, usando letras, espacios, guiones o apóstrofes.';
                 }
 
-                if (mb_strlen($datos['apellido_materno'], 'UTF-8') > 100) {
-                    $errores[] = 'El apellido materno admite hasta 100 caracteres.';
+                if (!$this->nombreValido($datos['apellido_paterno'], 100)) {
+                    $errores[] = 'Escribe un apellido paterno válido de hasta 100 caracteres.';
+                }
+
+                if ($datos['apellido_materno'] !== '' && !$this->nombreValido($datos['apellido_materno'], 100)) {
+                    $errores[] = 'El apellido materno debe contener letras y admitir hasta 100 caracteres.';
                 }
 
                 if (strlen($datos['correo']) > 254 || !filter_var($datos['correo'], FILTER_VALIDATE_EMAIL)) {
@@ -43,7 +50,7 @@ final class UsuarioController
                     $errores[] = 'La contraseña debe tener al menos 8 caracteres.';
                 }
 
-                if (strlen($contrasena) > 72 || str_contains($contrasena, "\0")) {
+                if (!mb_check_encoding($contrasena, 'UTF-8') || strlen($contrasena) > 72 || str_contains($contrasena, "\0")) {
                     $errores[] = 'La contraseña supera el tamaño permitido o contiene un carácter inválido.';
                 }
 
@@ -129,6 +136,138 @@ final class UsuarioController
         }
 
         require __DIR__ . '/../vistas/panel.php';
+    }
+
+    public function listarUsuarios(): void
+    {
+        if (!$this->exigirAdministrador()) {
+            return;
+        }
+
+        $busqueda = $_GET['buscar'] ?? '';
+
+        if (!is_string($busqueda) || !mb_check_encoding($busqueda, 'UTF-8') || mb_strlen($busqueda, 'UTF-8') > 200) {
+            http_response_code(400);
+            echo 'Escribe una búsqueda de hasta 200 caracteres.';
+            return;
+        }
+
+        $this->mostrarUsuarios(trim($busqueda));
+    }
+
+    public function eliminarUsuario(): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            http_response_code(405);
+            header('Allow: POST');
+            echo 'Utiliza la confirmación del listado para eliminar un usuario.';
+            return;
+        }
+
+        if (!$this->exigirAdministrador()) {
+            return;
+        }
+
+        if (!$this->csrfValido()) {
+            http_response_code(403);
+            $this->mostrarUsuarios('', 'El formulario venció. Actualiza el listado y vuelve a intentarlo.');
+            return;
+        }
+
+        $id = $this->idValido($_POST['id'] ?? null);
+
+        if ($id === null) {
+            http_response_code(400);
+            $this->mostrarUsuarios('', 'El identificador del usuario es inválido.');
+            return;
+        }
+
+        if (($_POST['confirmar'] ?? null) !== '1') {
+            http_response_code(422);
+            $this->mostrarUsuarios('', 'Debes confirmar la eliminación del usuario seleccionado.');
+            return;
+        }
+
+        $modelo = new Usuario();
+
+        if ($modelo->buscarPorId($id) === null) {
+            http_response_code(404);
+            $this->mostrarUsuarios('', 'El usuario seleccionado no existe.');
+            return;
+        }
+
+        try {
+            $cambio = $modelo->desactivar($id, $_SESSION['usuario_id']);
+            $_SESSION['mensaje_usuarios'] = $cambio
+                ? 'Usuario eliminado lógicamente: la cuenta quedó inactiva y conserva su historial.'
+                : 'El usuario ya estaba inactivo. No se realizó otra modificación.';
+
+            header('Location: index.php?pagina=usuarios', true, 303);
+        } catch (DomainException $error) {
+            http_response_code(422);
+            $this->mostrarUsuarios('', $error->getMessage());
+        }
+    }
+
+    private function mostrarUsuarios(string $busqueda, string $error = ''): void
+    {
+        $modelo = new Usuario();
+        $usuarios = $modelo->listar($busqueda);
+        $administradoresActivos = $modelo->administradoresActivos();
+        $usuarioActualId = $_SESSION['usuario_id'];
+        $seleccionado = null;
+
+        if ($error === '' && isset($_GET['confirmar'])) {
+            $id = $this->idValido($_GET['confirmar']);
+
+            if ($id === null) {
+                http_response_code(400);
+                $error = 'El identificador del usuario es inválido.';
+            } else {
+                $seleccionado = $modelo->buscarPorId($id);
+
+                if ($seleccionado === null) {
+                    http_response_code(404);
+                    $error = 'El usuario seleccionado no existe.';
+                } elseif ($id === $usuarioActualId) {
+                    http_response_code(422);
+                    $error = 'No puedes eliminar tu propia cuenta.';
+                } elseif ($seleccionado['estado'] !== 'activo') {
+                    http_response_code(422);
+                    $error = 'El usuario ya está inactivo.';
+                } elseif ($seleccionado['rol'] === 'administrador' && $administradoresActivos <= 1) {
+                    http_response_code(422);
+                    $error = 'Debe quedar al menos un administrador activo.';
+                }
+            }
+        }
+
+        if ($error !== '') {
+            $seleccionado = null;
+        }
+
+        $mensaje = $_SESSION['mensaje_usuarios'] ?? '';
+        unset($_SESSION['mensaje_usuarios']);
+
+        require __DIR__ . '/../vistas/usuarios.php';
+    }
+
+    private function idValido(mixed $valor): ?int
+    {
+        if (!is_string($valor) && !is_int($valor)) {
+            return null;
+        }
+
+        $id = filter_var($valor, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1, 'max_range' => 4294967295]]);
+
+        return $id === false ? null : $id;
+    }
+
+    private function nombreValido(string $valor, int $maximo): bool
+    {
+        return $valor !== '' && mb_check_encoding($valor, 'UTF-8')
+            && mb_strlen($valor, 'UTF-8') <= $maximo
+            && preg_match("/\A[\p{L}\p{M}]+(?:[ '\x{2019}-][\p{L}\p{M}]+)*\z/u", $valor) === 1;
     }
 
     public function usuarioActual(): ?array
