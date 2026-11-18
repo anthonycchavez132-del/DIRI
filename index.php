@@ -13,7 +13,8 @@ session_set_cookie_params([
     'httponly' => true,
     'secure' => isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off',
     'samesite' => 'Lax',
-    'path' => '/DIRI2/',
+    // Ruta de la carpeta donde está index.php, sea cual sea su nombre (DIRI, DIRI2, etc.).
+    'path' => rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/index.php')), '/') . '/',
 ]);
 session_start();
 
