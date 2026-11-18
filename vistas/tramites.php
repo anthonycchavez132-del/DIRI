@@ -14,7 +14,7 @@ if (!defined('DIRI_ENTRADA')) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trámites | DIRI</title>
-    <link rel="stylesheet" href="publico/estilos.css?v=2">
+    <link rel="stylesheet" href="publico/estilos.css?v=3">
     <link rel="stylesheet" href="publico/formularios.css?v=1">
     <?php if ($esAdministrador): ?>
         <link rel="stylesheet" href="publico/administracion.css?v=1">
@@ -40,6 +40,10 @@ if (!defined('DIRI_ENTRADA')) {
     </header>
 
     <main id="contenido">
+        <nav class="navegacion-pantalla" aria-label="Navegación de pantalla">
+            <a class="boton secundario" href="index.php"><span aria-hidden="true">←</span> Volver al inicio</a>
+            <a class="boton siguiente" href="index.php?pagina=preparar_recorrido">Preparar recorrido <span aria-hidden="true">→</span></a>
+        </nav>
         <p class="introduccion-pagina">Elige lo que necesitas hacer. DIRI te ayudará a preparar los requisitos y organizar las visitas.</p>
         <?php if ($mensaje !== ''): ?>
             <p role="status"><?= htmlspecialchars($mensaje, ENT_QUOTES, 'UTF-8') ?></p>

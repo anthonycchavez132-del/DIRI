@@ -14,7 +14,7 @@ if (!defined('DIRI_ENTRADA')) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preparar recorrido | DIRI</title>
-    <link rel="stylesheet" href="publico/estilos.css?v=2">
+    <link rel="stylesheet" href="publico/estilos.css?v=3">
     <link rel="stylesheet" href="publico/formularios.css?v=1">
     <link rel="stylesheet" href="publico/recorrido.css?v=1">
 </head>
@@ -26,6 +26,10 @@ if (!defined('DIRI_ENTRADA')) {
         <a href="index.php?pagina=tramites">Consultar trámites</a>
     </header>
     <main id="contenido">
+        <nav class="navegacion-pantalla" aria-label="Navegación de pantalla">
+            <a class="boton secundario" href="index.php?pagina=tramites"><span aria-hidden="true">←</span> Volver a trámites</a>
+            <a class="boton secundario" href="index.php">Inicio</a>
+        </nav>
         <ol class="pasos-progreso" aria-label="Preparación del recorrido"><li class="<?= $contexto === null ? 'actual' : '' ?>">Elige tu trámite</li><li class="<?= $contexto !== null ? 'actual' : '' ?>">Tu ubicación y documentos</li><li>Tu recorrido</li></ol>
         <?php if ($errores !== []): ?>
             <section id="errores-recorrido" role="alert" tabindex="-1">
@@ -131,7 +135,7 @@ if (!defined('DIRI_ENTRADA')) {
                 <div class="acciones-calculo">
                 <p>Se prioriza la menor distancia entre las alternativas calculadas y se usa el tiempo estimado como desempate.</p>
                 <p>Al calcular, tu punto de partida y los lugares de atención se envían al servicio peatonal de FOSSGIS. Tus selecciones se conservan en esta sesión.</p>
-                <button type="submit" id="calcular">Calcular recorrido</button>
+                <button type="submit" id="calcular">Calcular recorrido <span aria-hidden="true">→</span></button>
                 <p id="estado-calculo" role="status"></p>
                 </div>
             </form>

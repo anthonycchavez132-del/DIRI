@@ -14,7 +14,7 @@ if (!defined('DIRI_ENTRADA')) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi cuenta | DIRI</title>
-    <link rel="stylesheet" href="publico/estilos.css?v=2">
+    <link rel="stylesheet" href="publico/estilos.css?v=3">
     <link rel="stylesheet" href="publico/formularios.css?v=1">
     <link rel="stylesheet" href="publico/administracion.css?v=1">
 </head>
@@ -26,6 +26,10 @@ if (!defined('DIRI_ENTRADA')) {
     </header>
 
     <main id="contenido">
+        <nav class="navegacion-pantalla" aria-label="Navegación de pantalla">
+            <a class="boton secundario" href="index.php"><span aria-hidden="true">←</span> Volver al inicio</a>
+            <a class="boton siguiente" href="index.php?pagina=preparar_recorrido">Preparar recorrido <span aria-hidden="true">→</span></a>
+        </nav>
         <span class="etiqueta"><?= $usuario['rol'] === 'administrador' ? 'Administración de DIRI' : 'Tu espacio en DIRI' ?></span>
         <h2>Hola, <?= htmlspecialchars($usuario['nombre'], ENT_QUOTES, 'UTF-8') ?>.</h2>
         <p class="introduccion-pagina"><?= $usuario['rol'] === 'administrador' ? 'Mantén los trámites, documentos y lugares de atención al día.' : 'Organiza tu próxima visita y prepara los documentos que necesitas.' ?></p>

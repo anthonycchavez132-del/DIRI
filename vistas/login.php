@@ -14,7 +14,7 @@ if (!defined('DIRI_ENTRADA')) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesión | DIRI</title>
-    <link rel="stylesheet" href="publico/estilos.css?v=2">
+    <link rel="stylesheet" href="publico/estilos.css?v=3">
     <link rel="stylesheet" href="publico/formularios.css?v=1">
 </head>
 <body class="pagina-acceso vista-login">
@@ -25,6 +25,10 @@ if (!defined('DIRI_ENTRADA')) {
     </header>
 
     <main id="contenido">
+        <nav class="navegacion-pantalla" aria-label="Navegación de pantalla">
+            <a class="boton secundario" href="index.php"><span aria-hidden="true">←</span> Volver al inicio</a>
+            <a class="boton siguiente" href="index.php?pagina=registro">Crear cuenta <span aria-hidden="true">→</span></a>
+        </nav>
         <p class="introduccion-pagina">Qué bueno verte de nuevo. Ingresa a tu cuenta de DIRI.</p>
         <?php if ($mensaje !== ''): ?>
             <p role="status"><?= htmlspecialchars($mensaje, ENT_QUOTES, 'UTF-8') ?></p>
@@ -51,7 +55,7 @@ if (!defined('DIRI_ENTRADA')) {
                 <input type="password" id="contrasena" name="contrasena" required maxlength="72" autocomplete="current-password">
             </p>
 
-            <button type="submit">Ingresar</button>
+            <button type="submit">Ingresar <span aria-hidden="true">→</span></button>
         </form>
 
         <p>¿Es tu primera vez? <a href="index.php?pagina=registro">Crea tu cuenta</a></p>

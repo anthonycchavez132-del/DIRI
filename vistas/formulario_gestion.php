@@ -16,7 +16,7 @@ $titulo = $id === null ? 'Crear gestión' : 'Editar gestión';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($titulo, ENT_QUOTES, 'UTF-8') ?> | DIRI</title>
-    <link rel="stylesheet" href="publico/estilos.css?v=2">
+    <link rel="stylesheet" href="publico/estilos.css?v=3">
     <link rel="stylesheet" href="publico/formularios.css?v=1">
     <link rel="stylesheet" href="publico/administracion.css?v=1">
 </head>
@@ -28,6 +28,10 @@ $titulo = $id === null ? 'Crear gestión' : 'Editar gestión';
         <a href="index.php?pagina=gestiones">Volver a gestiones</a>
     </header>
     <main id="contenido">
+        <nav class="navegacion-pantalla" aria-label="Navegación de pantalla">
+            <a class="boton secundario" href="index.php?pagina=gestiones"><span aria-hidden="true">←</span> Volver a gestiones</a>
+            <a class="boton secundario" href="index.php">Inicio</a>
+        </nav>
         <?php if ($errores !== []): ?>
             <ul role="alert">
                 <?php foreach ($errores as $error): ?>
@@ -126,7 +130,7 @@ $titulo = $id === null ? 'Crear gestión' : 'Editar gestión';
                         <option value="inactivo" <?= $datos['estado'] === 'inactivo' ? 'selected' : '' ?>>Inactivo</option>
                     </select>
                 </p>
-                <button type="submit">Guardar gestión</button>
+                <button type="submit">Guardar gestión <span aria-hidden="true">→</span></button>
             </form>
         <?php else: ?>
             <p>Selecciona un trámite para configurar sus gestiones.</p>

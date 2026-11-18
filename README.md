@@ -48,6 +48,7 @@ El nombre local `DIRI2` corresponde a la ruta de las cookies de sesión configur
 - Comparación de recorridos: menor distancia y tiempo estimado como desempate. La búsqueda tiene un límite de tiempo y avisa si no completó toda la comparación.
 - Mapa con paradas numeradas y enlaces a Google Maps por tramos y visitas.
 - Interfaz adaptable a celulares y hojas CSS separadas por responsabilidad.
+- Navegación interna con botones para volver a los listados, ir al inicio y continuar los procesos mediante sus formularios. Las acciones de guardar y eliminar no se repiten al utilizar estos enlaces de regreso.
 
 Los casos especiales se indican en la descripción de cada trámite. Los lugares sin horario publicado requieren confirmación; los tiempos de atención no registrados hacen que la finalización sea una estimación mínima. El mapa y el cálculo peatonal requieren conexión a Internet. Google Maps recalcula los caminos al abrir sus enlaces.
 

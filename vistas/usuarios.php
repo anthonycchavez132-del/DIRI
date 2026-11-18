@@ -14,7 +14,7 @@ if (!defined('DIRI_ENTRADA')) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios | DIRI</title>
-    <link rel="stylesheet" href="publico/estilos.css?v=2">
+    <link rel="stylesheet" href="publico/estilos.css?v=3">
     <link rel="stylesheet" href="publico/formularios.css?v=1">
     <link rel="stylesheet" href="publico/administracion.css?v=2">
 </head>
@@ -26,6 +26,10 @@ if (!defined('DIRI_ENTRADA')) {
         <a href="index.php?pagina=panel">Mi cuenta</a>
     </header>
     <main id="contenido">
+        <nav class="navegacion-pantalla" aria-label="Navegación de pantalla">
+            <a class="boton secundario" href="<?= $seleccionado === null ? 'index.php?pagina=panel' : 'index.php?pagina=usuarios' ?>"><span aria-hidden="true">←</span> <?= $seleccionado === null ? 'Volver al panel' : 'Volver a usuarios' ?></a>
+            <a class="boton secundario" href="index.php">Inicio</a>
+        </nav>
         <p class="introduccion-pagina">La eliminación desactiva la cuenta y conserva su historial. Un usuario inactivo no puede iniciar sesión ni utilizar una sesión anterior para acceder a su cuenta.</p>
         <?php if ($mensaje !== ''): ?>
             <p role="status"><?= htmlspecialchars($mensaje, ENT_QUOTES, 'UTF-8') ?></p>

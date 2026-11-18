@@ -16,7 +16,7 @@ $titulo = $id === null ? 'Crear documento' : 'Editar documento';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($titulo, ENT_QUOTES, 'UTF-8') ?> | DIRI</title>
-    <link rel="stylesheet" href="publico/estilos.css?v=2">
+    <link rel="stylesheet" href="publico/estilos.css?v=3">
     <link rel="stylesheet" href="publico/formularios.css?v=1">
 </head>
 <body class="pagina-formulario vista-formulario-documento">
@@ -28,6 +28,10 @@ $titulo = $id === null ? 'Crear documento' : 'Editar documento';
     </header>
 
     <main id="contenido">
+        <nav class="navegacion-pantalla" aria-label="Navegación de pantalla">
+            <a class="boton secundario" href="index.php?pagina=documentos"><span aria-hidden="true">←</span> Volver a documentos</a>
+            <a class="boton secundario" href="index.php">Inicio</a>
+        </nav>
         <?php if ($errores !== []): ?>
             <ul role="alert">
                 <?php foreach ($errores as $error): ?>
@@ -60,7 +64,7 @@ $titulo = $id === null ? 'Crear documento' : 'Editar documento';
                 </select>
             </p>
 
-            <button type="submit">Guardar documento</button>
+            <button type="submit">Guardar documento <span aria-hidden="true">→</span></button>
         </form>
     </main>
     <footer class="pie-pagina"><span><strong>DIRI</strong> · Tu guía de trámites en La Paz.</span><a href="index.php?pagina=tramites">Explorar trámites</a></footer>

@@ -66,7 +66,7 @@ foreach ($resultado['visitas'] as $indice => $paso) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tu recorrido | DIRI</title>
-    <link rel="stylesheet" href="publico/estilos.css?v=2">
+    <link rel="stylesheet" href="publico/estilos.css?v=3">
     <link rel="stylesheet" href="publico/recorrido.css?v=1">
 </head>
 <body class="pagina-recorrido vista-recorrido">
@@ -77,6 +77,11 @@ foreach ($resultado['visitas'] as $indice => $paso) {
         <a href="index.php?pagina=preparar_recorrido&amp;tramite_id=<?= (int) $resultado['tramite']['id'] ?>">Cambiar mis datos</a>
     </header>
     <main id="contenido">
+        <nav class="navegacion-pantalla" aria-label="Navegación de pantalla">
+            <a class="boton secundario" href="index.php?pagina=preparar_recorrido&amp;tramite_id=<?= (int) $resultado['tramite']['id'] ?>"><span aria-hidden="true">←</span> Modificar mis datos</a>
+            <a class="boton secundario" href="index.php">Inicio</a>
+            <a class="boton siguiente" href="index.php?pagina=tramites">Otro trámite <span aria-hidden="true">→</span></a>
+        </nav>
         <ol class="pasos-progreso" aria-label="Preparación del recorrido"><li>Trámite elegido</li><li>Documentos revisados</li><li class="actual">Tu recorrido</li></ol>
         <h2><?= htmlspecialchars($resultado['tramite']['nombre'], ENT_QUOTES, 'UTF-8') ?></h2>
         <?php if ($resultado['horarios_sin_confirmar'] !== []): ?>

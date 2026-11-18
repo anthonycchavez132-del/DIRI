@@ -15,7 +15,7 @@ if (!defined('DIRI_ENTRADA')) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?= htmlspecialchars($nombreProyecto, ENT_QUOTES, 'UTF-8') ?></title>
-    <link rel="stylesheet" href="publico/estilos.css?v=2">
+    <link rel="stylesheet" href="publico/estilos.css?v=3">
     <link rel="stylesheet" href="publico/inicio.css?v=1">
 </head>
 <body class="pagina-inicio vista-inicio">

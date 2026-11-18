@@ -56,6 +56,9 @@ main { width: min(1160px, calc(100% - 48px)); margin: 36px auto 72px; min-height
 .insignia { display: inline-flex; align-items: center; gap: 7px; border-radius: 30px; padding: 5px 11px; font-size: .75rem; font-weight: 650; background: var(--menta); color: var(--verde-oscuro); }
 .icono { display: grid; place-items: center; width: 48px; height: 48px; background: var(--menta); color: var(--verde); border-radius: 14px; margin-bottom: 22px; }
 .icono svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.navegacion-pantalla { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+.navegacion-pantalla .boton { min-height: 40px; padding: 9px 15px; font-size: .82rem; }
+.navegacion-pantalla .siguiente { margin-left: auto; }
 [role='alert'] { padding: 18px 24px; background: #fff0ed; color: #8f3328; border: 1px solid #f1cec6; border-radius: 12px; }
 ul[role='alert'] { padding-left: 40px; }
 [role='alert'] h2 { color: #8f3328; font-size: 1.25rem; }
@@ -69,6 +72,8 @@ dt { color: var(--suave); font-size: .85rem; }
 dd { margin: 0; color: var(--tinta); font-weight: 600; overflow-wrap: anywhere; }
 
 @media (max-width: 640px) {
+    .navegacion-pantalla .boton { flex-grow: 1; }
+    .navegacion-pantalla .siguiente { margin-left: 0; }
     body { font-size: 15px; }
     body > header { padding: 18px 20px; gap: 16px; }
     body > header > h1 { margin: 12px 0 4px; }

@@ -14,7 +14,7 @@ if (!defined('DIRI_ENTRADA')) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Establecimientos | DIRI</title>
-    <link rel="stylesheet" href="publico/estilos.css?v=2">
+    <link rel="stylesheet" href="publico/estilos.css?v=3">
     <link rel="stylesheet" href="publico/formularios.css?v=1">
     <link rel="stylesheet" href="publico/administracion.css?v=1">
 </head>
@@ -30,6 +30,11 @@ if (!defined('DIRI_ENTRADA')) {
     </header>
 
     <main id="contenido">
+        <nav class="navegacion-pantalla" aria-label="Navegación de pantalla">
+            <a class="boton secundario" href="index.php?pagina=panel"><span aria-hidden="true">←</span> Volver al panel</a>
+            <a class="boton secundario" href="index.php">Inicio</a>
+            <a class="boton siguiente" href="index.php?pagina=nuevo_establecimiento">Crear establecimiento <span aria-hidden="true">→</span></a>
+        </nav>
         <?php if ($mensaje !== ''): ?>
             <p role="status"><?= htmlspecialchars($mensaje, ENT_QUOTES, 'UTF-8') ?></p>
         <?php endif; ?>
