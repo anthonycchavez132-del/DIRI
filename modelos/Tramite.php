@@ -16,7 +16,7 @@ final class Tramite
         }
 
         if ($busqueda !== '') {
-            // Los signos % y _ escritos por la persona se buscan literalmente.
+
             $texto = strtr($busqueda, ['!' => '!!', '%' => '!%', '_' => '!_']);
             $condiciones[] = "(nombre LIKE :nombre ESCAPE '!' OR descripcion LIKE :descripcion ESCAPE '!')";
             $parametros['nombre'] = '%' . $texto . '%';

@@ -1,5 +1,3 @@
--- DIRI: instalación nueva con estructura y catálogo.
--- No incluye usuarios ni auditorías personales de la instalación original.
 CREATE DATABASE IF NOT EXISTS diri2 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE diri2;
 SET @usuario_id = NULL;

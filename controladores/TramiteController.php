@@ -154,7 +154,7 @@ final class TramiteController
 
     private function leerRequisitos(array &$errores): ?array
     {
-        // Conserva los requisitos al recibir un formulario anterior a esta sección.
+
         if (!isset($_POST['requisitos_presentes'])) {
             return null;
         }

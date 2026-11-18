@@ -21,7 +21,7 @@ final class Conexion
             );
         }
 
-        // Los triggers utilizan esta variable para identificar al responsable.
+
         $usuarioId = $_SESSION['usuario_id'] ?? null;
         $consulta = self::$conexion->prepare('SET @usuario_id = :usuario_id');
         $consulta->bindValue(

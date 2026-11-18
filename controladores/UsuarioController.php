@@ -142,7 +142,7 @@ final class UsuarioController
         $modelo = new Usuario();
         $usuario = $modelo->buscarPorId($usuarioId);
 
-        // El estado y el rol se consultan de nuevo en cada solicitud protegida.
+
         if ($usuario === null || $usuario['estado'] !== 'activo') {
             unset($_SESSION['usuario_id']);
             session_regenerate_id(true);

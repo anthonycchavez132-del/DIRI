@@ -38,7 +38,7 @@ final class Horario
         $conexion->beginTransaction();
 
         try {
-            // Este bloqueo evita registrar dos intervalos superpuestos al mismo tiempo.
+
             $consulta = $conexion->prepare('SELECT id FROM establecimientos WHERE id = ? FOR UPDATE');
             $consulta->execute([$datos['establecimiento_id']]);
 

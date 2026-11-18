@@ -41,8 +41,8 @@ $enlaceGoogle = static function (array $puntos) use ($coordenadaGoogle): string 
 };
 $tramosGoogle = [];
 
-// Cada enlace lleva como máximo tres paradas intermedias y un destino.
-// Se separan también los días para conservar la planificación de DIRI.
+
+
 foreach ($resultado['visitas'] as $indice => $paso) {
     $dia = date('Y-m-d', $paso['inicio']);
     $ultimo = count($tramosGoogle) - 1;
@@ -202,7 +202,6 @@ foreach ($resultado['visitas'] as $indice => $paso) {
             const ubicaciones = paradas.map(punto => [Number(punto.longitud), Number(punto.latitud)]);
             const coordenadas = [...recorrido, ...ubicaciones];
 
-            // La proyección Mercator coloca las coordenadas sobre las imágenes del mapa.
             function proyectar(coordenada) {
                 const latitud = Math.max(-85, Math.min(85, coordenada[1]));
                 const seno = Math.sin(latitud * Math.PI / 180);

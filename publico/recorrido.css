@@ -1,4 +1,3 @@
-/* DIRI · Preparación de documentos, resumen, mapa y visitas del recorrido. */
 
 #perfil-recorrido { background: white; padding: 30px; border: 1px solid var(--linea); border-radius: var(--radio); box-shadow: var(--sombra); }
 .pasos-progreso { display: flex; list-style: none; padding: 0; margin: 0 0 32px; gap: 14px; counter-reset: progreso; }

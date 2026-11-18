@@ -1,4 +1,3 @@
-# Archivos locales del equipo
 .vscode/
 .idea/
 .env
@@ -9,7 +8,6 @@
 Thumbs.db
 Desktop.ini
 
-# Copias locales con datos privados
 *.bak
 *.backup
 *-privado.sql

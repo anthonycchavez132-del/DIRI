@@ -228,7 +228,7 @@ final class Recorrido
             }
         }
 
-        // Los pasos auxiliares solo hacen falta cuando una gestión pendiente los necesita.
+
         $conPosteriores = [];
 
         foreach ($gestiones as $gestion) {
@@ -595,7 +595,7 @@ final class Recorrido
                 curl_close($curl);
             }
 
-            // FOSSGIS permite como máximo una solicitud por segundo.
+
             usleep(1000000);
             $conexion->query("SELECT RELEASE_LOCK('diri2_rutas_peatonales')");
         }

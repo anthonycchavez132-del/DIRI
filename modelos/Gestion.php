@@ -65,7 +65,7 @@ final class Gestion
         $conexion->beginTransaction();
 
         try {
-            // Todas las ediciones de un mismo trámite se ordenan mediante este bloqueo.
+
             $consulta = $conexion->prepare('SELECT id FROM tramites WHERE id = ? FOR UPDATE');
             $consulta->execute([$datos['tramite_id']]);
 
@@ -251,7 +251,7 @@ final class Gestion
             $anteriores[(int) $dependencia['gestion_id']][] = (int) $dependencia['gestion_previa_id'];
         }
 
-        // Un camino que regresa a la gestión editada formaría un ciclo.
+
         $porVisitar = $dependencias;
         $visitadas = [];
 
