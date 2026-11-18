@@ -41,6 +41,24 @@ final class Usuario
         return $usuario === false ? null : $usuario;
     }
 
+    public function obtenerHashContrasena(int $id): ?string
+    {
+        $consulta = Conexion::obtener()->prepare('SELECT contrasena FROM usuarios WHERE id = :id LIMIT 1');
+        $consulta->execute(['id' => $id]);
+        $hash = $consulta->fetchColumn();
+
+        return is_string($hash) ? $hash : null;
+    }
+
+    public function cambiarContrasena(int $id, string $contrasenaNueva): void
+    {
+        $consulta = Conexion::obtener()->prepare('UPDATE usuarios SET contrasena = :contrasena WHERE id = :id');
+        $consulta->execute([
+            'contrasena' => password_hash($contrasenaNueva, PASSWORD_DEFAULT),
+            'id' => $id,
+        ]);
+    }
+
     public function buscarPorId(int $id): ?array
     {
         $consulta = Conexion::obtener()->prepare(

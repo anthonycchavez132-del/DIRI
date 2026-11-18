@@ -26,6 +26,9 @@ if (!defined('DIRI_ENTRADA')) {
     </header>
 
     <main id="contenido">
+        <?php if ($mensaje !== ''): ?>
+            <p role="status"><?= htmlspecialchars($mensaje, ENT_QUOTES, 'UTF-8') ?></p>
+        <?php endif; ?>
         <nav class="navegacion-pantalla" aria-label="Navegación de pantalla">
             <a class="boton secundario" href="index.php"><span aria-hidden="true">←</span> Volver al inicio</a>
             <a class="boton siguiente" href="index.php?pagina=preparar_recorrido">Preparar recorrido <span aria-hidden="true">→</span></a>
@@ -59,6 +62,8 @@ if (!defined('DIRI_ENTRADA')) {
             <dt>Rol</dt>
             <dd><?= htmlspecialchars($usuario['rol'], ENT_QUOTES, 'UTF-8') ?></dd>
         </dl>
+
+        <p><a href="index.php?pagina=cambiar_contrasena">Cambiar mi contraseña</a></p>
 
         <form action="index.php?pagina=salir" method="post">
             <input type="hidden" name="csrf" value="<?= htmlspecialchars($_SESSION['csrf'], ENT_QUOTES, 'UTF-8') ?>">
